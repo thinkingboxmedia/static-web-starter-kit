@@ -2,28 +2,26 @@
   "name": "react-boilerplate",
   "version": "0.1.0",
   "description": "A front-end template that helps you build fast, modern mobile web apps.",
-  "main": "index.js",
+  "main": "app/src/index.js",
   "directories": {
     "doc": "docs",
     "test": "test"
   },
   "scripts": {
-    "watch": "npm run watch:server & npm run watch:js & npm run watch:css",
-    "watch:server": "browser-sync start --port 3000 --server app --files 'app/bundle.js,app/index.html,app/bundle.css'",
-    "watch:js": "watchify app/src/index.js -v -t [ babelify --sourceMaps=inline ] -g envify -o app/bundle.js",
+    "watch": "npm run watch:server & npm run watch:js & npm run watch:css & npm run watch:lint",
+    "watch:server": "browser-sync start --port 3000 --server app --files 'app/bundle.js,app/index.html,app/bundle.css' --reloadDelay 500",
+    "watch:js": "watchify --delay 0 app/src/index.js -v -t [ babelify --sourceMaps=inline ] -g envify -o app/bundle.js",
     "watch:css": "node-sass --watch app/src/index.scss app/bundle.css",
-    "build": "npm run clean && npm run build:js && npm run build:css && npm run copy",
+    "watch:lint": "onchange app/src/ -- npm run lint",
+    "build": "npm run clean:dist && npm run build:js && npm run build:css && npm run copy:dist",
     "build:html": "npm run htmlmin",
     "build:js": "browserify app/src/index.js -t babelify -g envify -g uglifyify -cm > dist/bundle.js",
     "build:css": "node-sass --output-style compressed app/src/index.scss dist/bundle.css",
     "clean:dist": "rimraf dist && mkdirp dist",
-    "clean:tmp": "rimraf tmp",
-    "clean": "npm run clean:dist && npm run clean:tmp",
     "copy:dist": "cp app/!{bundle.js} dist/",
-    "copy": "npm run copy:dist",
     "lint": "eslint app/src",
     "doc": "esdoc -c esdoc.json",
-    "postinstall": "npm run build && npm run doc"
+    "postinstall": "node-sass app/src/index.scss app/bundle.css && npm run build && npm run doc"
   },
   "repository": {
     "type": "git",
@@ -54,7 +52,9 @@
     "gulp": "^3.9.0",
     "htmlmin": "0.0.3",
     "imagemin": "^3.2.0",
+    "mkdirp": "^0.5.1",
     "node-sass": "^3.2.0",
+    "onchange": "^1.1.0",
     "rimraf": "^2.4.2",
     "watchify": "^3.3.1"
   },

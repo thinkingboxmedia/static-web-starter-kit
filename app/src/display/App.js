@@ -1,9 +1,11 @@
-import React from 'react';
+'use strict';
+
+import React, { Component } from 'react';
 
 /**
  * Application component
  */
-export default class App extends React.Component {
+export default class App extends Component {
 
   /**
    * render
@@ -19,4 +21,4 @@ export default class App extends React.Component {
   }
 }
 
-React.render(<App />, document.getElementById("app"))
+React.render(<App />, document.getElementById('app'))
