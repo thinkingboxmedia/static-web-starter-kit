@@ -1,9 +1,16 @@
 'use strict';
 
 import domready from 'domready';
+import React from 'react';
+
+import App from './display/App';
+
+/**
+ *
+ */
 
 domready(() => {
 
-  require('./display/App');
+  React.render(<App />, document.getElementById('app'));
 
 });

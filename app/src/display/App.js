@@ -7,6 +7,14 @@ import React, { Component } from 'react';
  */
 export default class App extends Component {
 
+  constructor() {
+
+    super();
+
+    /* Test spec value */
+    this.start = 300;
+  }
+
   /**
    * render
    * @return {ReactElement} markup
@@ -20,5 +28,3 @@ export default class App extends Component {
     );
   }
 }
-
-React.render(<App />, document.getElementById('app'));
