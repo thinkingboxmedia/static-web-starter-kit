@@ -64,34 +64,6 @@
       </noscript>
     </section>
 
-    <!-- CONFIG:: PROD-->
-    <script type="text/javascript">
-
-      var config = {
-        ENV           : 'production',
-        VERSION       : '@@version',
-        LOG           : 0,
-        UA            : 'UA-XXXXXX',
-        FB_ID         : 'xxx'
-      };
-
-    </script>
-
-    <!-- build:remove -->
-    <!-- CONFIG:: DEV-->
-    <script type="text/javascript">
-
-      var config = {
-        ENV           : 'development',
-        VERSION       : '@@version',
-        LOG           : 1,
-        UA            : 'UA-XXXXXX',
-        FB_ID         : 'xxx'
-      };
-
-    </script>
-    <!-- endbuild -->
-
     <script async src="bundle.js?v=@@version"></script>
 
     <script>
@@ -99,7 +71,7 @@
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      ga('create', window.config.UA, 'auto');
+      ga('create', 'UA-XXXXXX', 'auto');
       ga('send', 'pageview');
     </script>
 

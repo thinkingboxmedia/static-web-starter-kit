@@ -21,4 +21,4 @@ export default class App extends Component {
   }
 }
 
-React.render(<App />, document.getElementById('app'))
+React.render(<App />, document.getElementById('app'));
