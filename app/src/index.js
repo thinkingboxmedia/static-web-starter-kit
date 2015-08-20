@@ -2,8 +2,9 @@
 
 import domready from 'domready';
 import React from 'react';
+import Router from 'react-router';
 
-import App from './display/App';
+import routes from './routes';
 
 /**
  *
@@ -11,6 +12,8 @@ import App from './display/App';
 
 domready(() => {
 
-  React.render(<App />, document.getElementById('app'));
+  Router.run(routes, Router.HashLocation, function (Handler) {
+    React.render(<Handler/>, document.getElementById('app'));
+  });
 
 });
