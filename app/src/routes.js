@@ -9,9 +9,9 @@ import Home from './display/sections/home/Home';
 import Contact from './display/sections/contact/Contact';
 
 var routes = (
-  <Route handler={App} path='/'>
+  <Route handler={App} path="/">
     <DefaultRoute handler={Home} />
-    <Route name='contact' path='contact' handler={Contact} />
+    <Route name="contact" path="contact" handler={Contact} />
     <NotFoundRoute handler={Home}/>
   </Route>
 );

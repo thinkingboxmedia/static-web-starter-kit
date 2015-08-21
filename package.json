@@ -76,6 +76,8 @@
     "normalize.css": "^3.0.3",
     "object-assign": "^3.0.0",
     "react": "^0.13.3",
-    "react-router": "^0.13.3"
+    "react-motion": "^0.2.7",
+    "react-router": "^0.13.3",
+    "redux": "^1.0.1"
   }
 }
