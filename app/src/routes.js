@@ -11,7 +11,7 @@ import Contact from './display/sections/contact/Contact';
 
 var routes = (
   <Router history={new HashHistory}>
-    <Route  component={App}>
+    <Route component={App}>
       <Route path="/" component={Home} />
       <Route path="contact" component={Contact} />
     </Route>

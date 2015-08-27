@@ -2,7 +2,6 @@
 
 import domready from 'domready';
 import React from 'react';
-import Router from 'react-router';
 
 import routes from './routes';
 
