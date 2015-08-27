@@ -12,8 +12,6 @@ import routes from './routes';
 
 domready(() => {
 
-  Router.run(routes, Router.HashLocation, function (Handler) {
-    React.render(<Handler/>, document.getElementById('app'));
-  });
+  React.render(routes, document.getElementById('app'));
 
 });

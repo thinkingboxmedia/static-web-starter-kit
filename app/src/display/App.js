@@ -1,8 +1,6 @@
 'use strict';
 
 import React, { Component } from 'react';
-import { RouteHandler } from 'react-router';
-import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup';
 
 import Header from './components/header/Header';
 
@@ -53,7 +51,7 @@ export default class App extends Component {
     return (
       <section>
         <Header />
-          <RouteHandler />
+        {this.props.children}
       </section>
     );
   }

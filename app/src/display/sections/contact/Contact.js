@@ -11,6 +11,8 @@ export default class Contact extends Component {
   constructor(props) {
 
     super(props);
+
+    this.state = {isClosing: false};
   }
 
   /**
@@ -18,7 +20,9 @@ export default class Contact extends Component {
    */
   callbackNavigation() {
 
-    this.context.router.transitionTo('/');
+    //this.context.router.transitionTo('/');
+
+    this.setState({isClosing: true});
   }
 
   /**
@@ -27,14 +31,12 @@ export default class Contact extends Component {
    */
   render() {
 
-    console.log(this.context);
-
     return (
      <section className="section-contact">
-       <Spring defaultValue={{val: 0}} endValue={{val: 400}}>
-         {interpolated =>
+       <Spring defaultValue={0} endValue={this.state.isClosing ? 0 : 400}>
+         {val =>
            <h2 style={{
-              transform: `translate3d(${interpolated.val}px, 0, 0)`
+              transform: `translate3d(${val}px, 0, 0)`
             }} >Contact section!</h2>
          }
        </Spring>
