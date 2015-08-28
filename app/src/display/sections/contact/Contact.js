@@ -1,7 +1,6 @@
 'use strict';
 
-import React, { Component, PropTypes } from 'react';
-import { Spring } from 'react-motion';
+import React, { Component } from 'react';
 
 /**
  * Application component
@@ -11,8 +10,6 @@ export default class Contact extends Component {
   constructor(props) {
 
     super(props);
-
-    this.state = {isClosing: false};
   }
 
   /**
@@ -21,8 +18,6 @@ export default class Contact extends Component {
   callbackNavigation() {
 
     this.context.router.transitionTo('/');
-
-    //this.setState({isClosing: true});
   }
 
   /**
@@ -33,11 +28,7 @@ export default class Contact extends Component {
 
     return (
      <section className="section-contact">
-       <Spring defaultValue={0} endValue={this.state.isClosing ? 0 : 400}>
-         {val =>
-           <h2 style={{ transform: 'translate3d(${val}px, 0, 0)' }} >Contact section!</h2>
-         }
-       </Spring>
+        <h2> Contact section!</h2>
         <aside className="navigation">
           <button onClick={this.callbackNavigation.bind(this)} className="navigation" value="Contact">← Back</button>
         </aside>
@@ -47,5 +38,9 @@ export default class Contact extends Component {
 }
 
 Contact.contextTypes = {
-  router: function() { return React.PropTypes.func.isRequired; }
+
+  router: function() {
+
+    return React.PropTypes.func.isRequired;
+  },
 };
