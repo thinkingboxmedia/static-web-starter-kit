@@ -1,0 +1,85 @@
+{
+  "name": "react-boilerplate",
+  "version": "0.1.0",
+  "description": "A front-end template that helps you build fast, modern mobile web apps.",
+  "main": "app/src/index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "scripts": {
+    "serve": "npm run compile:css && npm run watch",
+    "compile:css": "node-sass app/src/index.scss '.tmp/bundle.css' && postcss -u autoprefixer -c postcss.json -o 'app/bundle.css' '.tmp/bundle.css'",
+    "watch": "npm run watch:server & npm run watch:js & npm run watch:css & npm run watch:postcss & npm run watch:lint",
+    "watch:server": "browser-sync start --port 3000 --server app --files 'app/bundle.js,app/index.html,app/bundle.css' --reloadDelay 500",
+    "watch:js": "watchify --delay 0 app/src/index.js -v -t [ babelify --sourceMaps=inline ] -g envify -o app/bundle.js",
+    "watch:css": "node-sass --watch app/src/index.scss '.tmp/bundle.css'",
+    "watch:postcss": "onchange '.tmp/bundle.css' -- postcss -u autoprefixer -c postcss.json -o 'app/bundle.css' '.tmp/bundle.css'",
+    "watch:lint": "onchange 'app/src/**/*.js' -- npm run lint",
+    "build": "npm run clean:dist && NODE_ENV=production && npm run build:js && npm run build:gzip && npm run build:css && npm run build:html && npm run build:assets && npm run doc",
+    "build:html": "html-minifier -c html-minifier.json app/index.html -o dist/index.html && replace '@@version' $npm_package_version dist/index.html",
+    "build:js": "browserify app/src/index.js -t babelify -g envify -g [ uglifyify --screw-ie8 --mangle [ --toplevel --eval ] --compress [ --unsafe ] ] -cm > dist/bundle.js",
+    "build:gzip": "gzip -c dist/bundle.js > dist/bundle.js.gz",
+    "build:css": "node-sass app/src/index.scss '.tmp/bundle.css' && postcss -u autoprefixer -c postcss.json -o 'dist/bundle.css' '.tmp/bundle.css' && cleancss -o dist/bundle.css dist/bundle.css",
+    "build:assets": "ncp app/images/ dist/images/ & ncp app/fonts/ dist/fonts/ & ncp app/sounds/ dist/sounds/ & ncp app/favicon.ico dist/favicon.ico & ncp app/humans.txt dist/humans.txt & ncp app/manifest.json dist/manifest.json & ncp app/manifest.webapp dist/manifest.webapp & ncp app/robots.txt dist/robots.txt & ncp app/sitemap.xml dist/sitemap.xml",
+    "clean:dist": "rimraf dist && mkdirp dist",
+    "lint": "eslint app/src",
+    "test": "babel-tape-runner test/**/*.js",
+    "doc": "esdoc -c esdoc.json",
+    "postinstall": "npm run build && npm run doc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/thinkingboxmedia/React-boilerplate.git"
+  },
+  "keywords": [
+    "boilerplate",
+    "react"
+  ],
+  "author": "Thinkingbox",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thinkingboxmedia/React-boilerplate/issues"
+  },
+  "homepage": "https://github.com/thinkingboxmedia/React-boilerplate#readme",
+  "engines": {
+    "node": ">=0.12.0"
+  },
+  "browser": {},
+  "devDependencies": {
+    "autoprefixer": "^5.2.0",
+    "babel-eslint": "^4.1.0",
+    "babel-jest": "^5.3.0",
+    "babel-tape-runner": "^1.2.0",
+    "babelify": "^6.2.0",
+    "browser-sync": "^2.8.2",
+    "clean-css": "^3.4.1",
+    "envify": "^3.4.0",
+    "esdoc": "^0.2.2",
+    "eslint": "^1.2.1",
+    "eslint-plugin-react": "^3.3.0",
+    "gzip": "^0.1.0",
+    "html-minifier": "^0.7.2",
+    "mkdirp": "^0.5.1",
+    "ncp": "^2.0.0",
+    "node-sass": "^3.2.0",
+    "onchange": "^2.0.0",
+    "postcss-cli": "^2.0.0",
+    "replace": "^0.3.0",
+    "rimraf": "^2.4.3",
+    "tape": "^4.2.0",
+    "uglifyify": "^3.0.1",
+    "watchify": "^3.3.1"
+  },
+  "dependencies": {
+    "babel": "^5.8.21",
+    "browserify": "^11.0.1",
+    "domready": "^1.0.8",
+    "normalize.css": "^3.0.3",
+    "object-assign": "^4.0.1",
+    "react": "^0.14.0-beta3",
+    "react-dom": "^0.14.0-beta3",
+    "react-router": "^1.0.0-beta3",
+    "redux": "^1.0.1"
+  }
+}

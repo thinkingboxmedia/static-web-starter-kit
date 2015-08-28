@@ -1,0 +1,9 @@
+node_modules
+dist
+docs
+.idea
+.sass-cache
+.tmp
+npm-debug.log
+app/bundle.js
+app/bundle.css
