@@ -1,7 +1,8 @@
 'use strict';
 
-import domready from 'domready';
+import DOMready from 'domready';
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 import routes from './routes';
 
@@ -9,8 +10,8 @@ import routes from './routes';
  *
  */
 
-domready(() => {
+DOMready(() => {
 
-  React.render(routes, document.getElementById('app'));
+  ReactDOM.render(routes, document.getElementById('app'));
 
 });

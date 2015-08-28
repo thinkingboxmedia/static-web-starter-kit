@@ -77,7 +77,8 @@
     "domready": "^1.0.8",
     "normalize.css": "^3.0.3",
     "object-assign": "^4.0.1",
-    "react": "^0.13.3",
+    "react": "^0.14.0-beta3",
+    "react-dom": "^0.14.0-beta3",
     "react-motion": "^0.2.7",
     "react-router": "^1.0.0-beta3",
     "redux": "^1.0.1"
