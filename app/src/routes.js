@@ -11,9 +11,9 @@ import SectionContact from './display/sections/contact/Contact';
 
 var routes = (
   <Router history={createBrowserHistory()}>
-    <Route path='/' component={App}>
+    <Route path="/" component={App}>
       <IndexRoute component={SectionHome} />
-      <Route path='contact' component={SectionContact} />
+      <Route path="contact" component={SectionContact} />
     </Route>
   </Router>
 );
