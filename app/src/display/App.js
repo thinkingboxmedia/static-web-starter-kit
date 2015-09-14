@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import Header from './components/header/Header';
 
 /**
- * Application component
+ * App
  */
 export default class App extends Component {
 

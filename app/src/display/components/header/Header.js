@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 
 /**
- * Application component
+ * Header component
  */
 export default class Header extends Component {
 

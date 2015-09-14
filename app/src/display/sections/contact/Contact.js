@@ -1,9 +1,11 @@
 'use strict';
 
 import React, { Component } from 'react';
+import reactMixin from 'react-mixin';
+import { History } from 'react-router';
 
 /**
- * Application component
+ * Contact section
  */
 export default class Contact extends Component {
 
@@ -17,7 +19,7 @@ export default class Contact extends Component {
    */
   callbackNavigation() {
 
-    this.context.router.transitionTo('/');
+    this.history.pushState(null, '/');
   }
 
   /**
@@ -37,10 +39,8 @@ export default class Contact extends Component {
   }
 }
 
-Contact.contextTypes = {
+/****************
+ * Mixins *
+ ****************/
 
-  router: function() {
-
-    return React.PropTypes.func.isRequired;
-  },
-};
+reactMixin.onClass(Contact, History);
