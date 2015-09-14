@@ -2,18 +2,18 @@
 
 import React from 'react';
 
-import { Router, Route } from 'react-router';
-import HashHistory from 'react-router/lib/HashHistory';
+import createBrowserHistory from 'history/lib/createBrowserHistory';
+import { Router, Route, IndexRoute } from 'react-router';
 
 import App from './display/App';
-import Home from './display/sections/home/Home';
-import Contact from './display/sections/contact/Contact';
+import SectionHome from './display/sections/home/Home';
+import SectionContact from './display/sections/contact/Contact';
 
 var routes = (
-  <Router history={new HashHistory}>
-    <Route component={App}>
-      <Route path="/" component={Home} />
-      <Route path="contact" component={Contact} />
+  <Router history={createBrowserHistory()}>
+    <Route path='/' component={App}>
+      <IndexRoute component={SectionHome} />
+      <Route path='contact' component={SectionContact} />
     </Route>
   </Router>
 );

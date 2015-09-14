@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 
 /**
- * Application component
+ * Home section
  */
 export default class Home extends Component {
 
@@ -31,7 +31,7 @@ export default class Home extends Component {
           })}
         </ul>
         <aside className="navigation">
-          <Link to="contact">Contact</Link>
+          <Link to="/contact">Contact</Link>
         </aside>
       </section>
     );
