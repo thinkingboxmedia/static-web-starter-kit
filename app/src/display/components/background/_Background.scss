@@ -1,0 +1,16 @@
+.component-background {
+
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #caddd7;
+
+  &.home {
+    background-color: #caddd7;
+  }
+  &.contact {
+    background-color: #FF0000;
+  }
+}

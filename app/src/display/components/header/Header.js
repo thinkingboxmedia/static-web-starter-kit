@@ -14,7 +14,7 @@ export default class Header extends Component {
 
     this.state = {
       isToggle: false,
-      isActivate: false
+      isActivate: false,
     };
   }
 
@@ -24,7 +24,9 @@ export default class Header extends Component {
 
   componentDidMount() {
 
-   this.setState({ isActivate: true });
+    this.setState({
+      isActivate: true,
+    });
 
   }
 
@@ -36,7 +38,7 @@ export default class Header extends Component {
 
     this.setState({
       isToggle : true,
-      isActivate: !this.state.isActivate
+      isActivate: !this.state.isActivate,
     });
 
   }
@@ -54,17 +56,15 @@ export default class Header extends Component {
       opacity: this.state.isActivate ? 1 : 0.5,
       rotateY: this.state.isActivate ? 0 : 180,
       transformOriginY: ['50%', '50%'],
-      top: 0
+      top: 0,
     };
 
     return (
-      <div>
-          <header className="component-header">
-            <VelocityComponent delay={delay} duration={300} animation={animation}>
-              <h2 style={nodeStyle} onClick={this.toggle.bind(this)}>♡</h2>
-            </VelocityComponent>
-          </header>
-      </div>
+      <header className="component-header">
+        <VelocityComponent delay={delay} duration={300} animation={animation}>
+          <h2 style={nodeStyle} onClick={this.toggle.bind(this)}>♡</h2>
+        </VelocityComponent>
+      </header>
     );
   }
 }
