@@ -26,15 +26,6 @@ export default class Background extends Component {
   }
 
   /**
-   * onChange
-   */
-
-  onChange(req) {
-
-    console.log('req', req);
-  }
-
-  /**
    * render
    * @return {ReactElement} markup
    */

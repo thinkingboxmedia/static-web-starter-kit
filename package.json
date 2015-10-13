@@ -78,6 +78,8 @@
     "react-mixin": "^3.0.0",
     "react-router": "^1.0.0-rc3",
     "redux": "^3.0.2",
+    "redux-devtools": "^2.1.5",
+    "redux-router": "^1.0.0-beta3",
     "replace": "^0.3.0",
     "rimraf": "^2.4.3",
     "tape": "^4.2.1",
@@ -85,5 +87,7 @@
     "velocity-react": "^1.1.0",
     "watchify": "^3.4.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "redux-router": "^1.0.0-beta3"
+  }
 }

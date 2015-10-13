@@ -36,12 +36,13 @@
     "no-undef-init": 0,
     "block-scoped-var": 0,
 
+    "jsx-quotes": [2, "double"],
+
     // React
     "react/display-name": 0,
     "react/jsx-boolean-value": [2, "always"],
     "react/jsx-no-duplicate-props": 1,
     "react/jsx-no-undef": 2,
-    "react/jsx-quotes": [2, "double"],
     "react/jsx-sort-prop-types": 0,
     "react/jsx-sort-props": 0,
     "react/jsx-uses-react": 2,
