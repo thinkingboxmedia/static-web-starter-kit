@@ -5,5 +5,3 @@ docs
 .sass-cache
 .tmp
 npm-debug.log
-app/bundle.js
-app/bundle.css

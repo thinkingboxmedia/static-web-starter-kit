@@ -25,6 +25,7 @@
     "lint": "eslint app/src",
     "test": "babel-tape-runner test/**/*.js",
     "doc": "esdoc -c esdoc.json",
+    "deploy": "gh-pages -d dist",
     "postinstall": "npm-run-all build doc"
   },
   "repository": {
@@ -60,6 +61,7 @@
     "esdoc": "^0.4.0",
     "eslint": "^1.6.0",
     "eslint-plugin-react": "^3.5.1",
+    "gh-pages": "^0.4.0",
     "history": "^1.12.5",
     "html-minifier": "^0.8.0",
     "installify": "^1.0.2",
