@@ -76,6 +76,7 @@
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
     "react-mixin": "^3.0.0",
+    "react-redux": "^3.1.0",
     "react-router": "^1.0.0-rc3",
     "redux": "^3.0.2",
     "redux-devtools": "^2.1.5",
@@ -87,7 +88,5 @@
     "velocity-react": "^1.1.0",
     "watchify": "^3.4.0"
   },
-  "dependencies": {
-    "redux-router": "^1.0.0-beta3"
-  }
+  "dependencies": {}
 }
