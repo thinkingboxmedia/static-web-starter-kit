@@ -3,7 +3,6 @@
 import React, { Component } from 'react';
 
 import Header from './components/header/Header';
-import Background from './components/background/Background';
 
 /**
  * App
@@ -52,8 +51,9 @@ export default class App extends Component {
     return (
       <div className="wrapper">
         <Header />
-        {this.props.children}
-        <Background />
+        <div className="sections">
+          {this.props.children}
+        </div>
       </div>
     );
   }

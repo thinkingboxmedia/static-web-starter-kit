@@ -1,10 +1,12 @@
 .component-header {
 
+  position: absolute;
+  top: 0;
   width: 100%;
   height:5em;
   text-align: center;
-  color: #FFFFFF;
-  background: #000000 url("../images/yeoman.png") no-repeat 0.5em 0.5em;
+  color: #000000;
+  background: #ffffff url("/images/yeoman.png") no-repeat 5px 5px;
 
   .setup-h2 {
     -webkit-transform: rotateX(180deg);
@@ -18,6 +20,7 @@
     position: relative;
     display: inline-block;
     margin: 0;
+    font-style: normal;
     line-height: 3em;
     cursor: crosshair;
   }

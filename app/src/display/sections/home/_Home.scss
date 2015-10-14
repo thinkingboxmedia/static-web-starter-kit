@@ -1,26 +1,28 @@
 .section-home {
 
-  width: 60%;
+  width: 50%;
   margin: 1em auto 0 auto;
-  padding: 1em 2em;
   font-size: 1.2em;
   font-weight: 200;
   color: #FFFFFF;
+  text-align: center;
 
-  @media (max-width: 45em) {
+  @media (max-width: 30em) {
     width: 100%;
-    margin: 0 auto;
-    padding: 1em 1em 2em 1em;
-    font-size: 1em;
-    line-height: 2em;
-    border-radius: 0;
   }
 
   h1 {
+    display: inline-block;
+    padding: 0.1em;
     font-size: 3em;
     text-align: center;
     line-height: 1;
     letter-spacing: -1px;
+    border-bottom: 1px solid #D8789C;
+  }
+
+  p {
+    font-size: 1.3em;
   }
 
   .navigation {
@@ -30,13 +32,41 @@
 
   a {
     display: inline-block;
-    padding: 1em 1.5em ;
+    padding: 1em 1.5em;
+    margin: 0 0 2em 0;
     font-weight: bold;
-    color: #FFFFFF;
-    background-color: #4C7083;
+    text-decoration: none;
+    color: #000000;
+    background-color: #ffffff;
+
+    b {
+      border-bottom: 1px solid #000000;
+    }
 
     &:hover {
       color: #999;
+
+      b {
+        border-bottom: 1px solid #999;
+      }
+    }
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+  }
+
+  li {
+    margin: 1px 0 0 0;
+    padding: 0.5em;
+    line-height: 2em;
+    font-size: 1em;
+    background-color: #D8789C;
+
+    span {
+      font-size: 1em;
     }
   }
 }
