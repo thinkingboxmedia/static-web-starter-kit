@@ -1,19 +1,11 @@
 .section-contact {
 
-  width: 60%;
-  margin: 50px auto 0 auto;
-  padding: 60px;
+  margin: 100px auto 0 auto;
   font-size: 18px;
   font-weight: 200;
   line-height: 30px;
   color: #FFFFFF;
-  background-color: #2E354D;
-
-  @media (max-width: 50em) {
-    width: 100%;
-    padding: 1em 1em 2em 1em;
-    line-height: 2em;
-  }
+  text-align: center;
 
   .navigation {
     padding: 0.5em;

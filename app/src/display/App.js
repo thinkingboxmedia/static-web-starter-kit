@@ -36,7 +36,7 @@ export default class App extends Component {
     var app = (this.state.isLoaded) ? this.renderApp() : '';
 
     return (
-      <div>
+      <div className="wrapper">
         {app}
       </div>
     );
@@ -49,10 +49,12 @@ export default class App extends Component {
   renderApp() {
 
     return (
-      <section>
+      <div className="wrapper">
         <Header />
-        {this.props.children}
-      </section>
+        <div className="sections">
+          {this.props.children}
+        </div>
+      </div>
     );
   }
 }

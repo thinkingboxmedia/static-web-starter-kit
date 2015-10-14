@@ -9,7 +9,7 @@ import App from './display/App';
 import SectionHome from './display/sections/home/Home';
 import SectionContact from './display/sections/contact/Contact';
 
-var routes = (
+exports.routes = (
   <Router history={createBrowserHistory()}>
     <Route path="/" component={App}>
       <IndexRoute component={SectionHome} />
@@ -17,5 +17,3 @@ var routes = (
     </Route>
   </Router>
 );
-
-module.exports = routes;

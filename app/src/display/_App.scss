@@ -1,6 +1,18 @@
 @import 'components/components.scss';
 @import 'sections/sections.scss';
 
-#app {
+html, body, #app, .wrapper {
+  width: 100%;
+  height: 100%;
+}
 
+#app {
+  font-family: Arapey;
+  font-style: italic;
+}
+
+.sections {
+  min-height: calc(100% - 5em);
+  padding: 5em 0 0 0;
+  background-color: #670858;
 }

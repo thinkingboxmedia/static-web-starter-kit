@@ -27,11 +27,11 @@ export default class Home extends Component {
         <p>You now have:</p>
         <ul>
           {this.state.items.map(function(item, key) {
-            return <li key={key}>{item}</li>;
+            return <li key={key}><span> {item}</span></li>;
           })}
         </ul>
         <aside className="navigation">
-          <Link to="/contact">Contact</Link>
+          <Link to="/contact">&#9998; <b>Contact</b></Link>
         </aside>
       </section>
     );
