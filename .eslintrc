@@ -36,7 +36,7 @@
     "no-undef-init": 0,
     "block-scoped-var": 0,
 
-    "jsx-quotes": [2, "double"],
+    "jsx-quotes": [2, "prefer-double"],
 
     // React
     "react/display-name": 0,
