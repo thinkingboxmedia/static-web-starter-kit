@@ -18,6 +18,7 @@ A front-end template that helps you build fast, modern mobile web apps. (IE9+) @
 ## Features
 
 * [React](http://facebook.github.io/react/) / [Browserify](http://browserify.org/) ♡
+* [Velocity - React Animation Plugin](https://github.com/twitter-fabric/velocity-react)
 * CSS Autoprefixing
 * Built-in preview server with [BrowserSync](http://www.browsersync.io/)
 * Automagically compile Sass / ES6
