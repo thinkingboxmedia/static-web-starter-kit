@@ -9,8 +9,10 @@ import App from './display/App';
 import SectionHome from './display/sections/home/Home';
 import SectionContact from './display/sections/contact/Contact';
 
+import RouterActions from './store/RouterActions';
+
 exports.routes = (
-  <Router history={createBrowserHistory()}>
+  <Router onUpdate={function() {RouterActions.update.dispatch(this.state)}} history={createBrowserHistory()}>
     <Route path="/" component={App}>
       <IndexRoute component={SectionHome} />
       <Route path="contact" component={SectionContact} />
