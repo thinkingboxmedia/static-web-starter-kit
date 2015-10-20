@@ -19,6 +19,7 @@ A front-end template that helps you build fast, modern mobile web apps. (IE9+) @
 
 * [React](http://facebook.github.io/react/) / [Browserify](http://browserify.org/) ♡
 * [Velocity - React Animation Plugin](https://github.com/twitter-fabric/velocity-react)
+* Flux-like store example (with [js-signals](http://millermedeiros.github.io/js-signals/))
 * CSS Autoprefixing
 * Built-in preview server with [BrowserSync](http://www.browsersync.io/)
 * Automagically compile Sass / ES6

@@ -164,7 +164,7 @@ var Background = (function (_Component) {
     key: 'routerUpdatedHandler',
     value: function routerUpdatedHandler(route) {
 
-      console.log('routerUpdatedHandler > background::update', route);
+      console.log('Background::routerUpdatedHandler', route);
     }
 
     /**

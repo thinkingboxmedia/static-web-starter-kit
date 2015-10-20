@@ -37,7 +37,7 @@ export default class Background extends Component {
 
   routerUpdatedHandler(route) {
 
-    console.log('routerUpdatedHandler > background::update', route);
+    console.log('Background::routerUpdatedHandler', route);
 
   }
 
