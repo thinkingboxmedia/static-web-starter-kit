@@ -1,6 +1,6 @@
 {
   "name": "react-boilerplate",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "A front-end template that helps you build fast, modern mobile web apps.",
   "main": "app/src/index.js",
   "directories": {
