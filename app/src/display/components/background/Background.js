@@ -18,8 +18,8 @@ export default class Background extends Component {
       section: '',
     };
 
-    var routerStore = new RouterStore();
-    routerStore.updated.add(this.routerUpdatedHandler);
+    this._routerStore = new RouterStore();
+    this._routerStore.changed.add(this.routerChangedHandler.bind(this));
   }
 
   /**
@@ -32,12 +32,12 @@ export default class Background extends Component {
   }
 
   /**
-   * routerUpdatedHandler
+   * routerChangedHandler
    */
 
-  routerUpdatedHandler(route) {
+  routerChangedHandler() {
 
-    console.log('Background::routerUpdatedHandler', route);
+    console.log(this._routerStore.route);
 
   }
 

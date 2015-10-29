@@ -10,7 +10,7 @@ export default class RouterStore {
 
     this.route = {};
 
-    this.updated = new Signal();
+    this.changed = new Signal();
 
     RouterActions.update.add(this._update.bind(this));
   }
@@ -20,7 +20,9 @@ export default class RouterStore {
    */
   _update(route) {
 
-    this.updated.dispatch(route);
+    this.route = route;
+
+    this.changed.dispatch();
   }
 
 }
