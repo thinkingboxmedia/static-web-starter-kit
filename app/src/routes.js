@@ -12,7 +12,11 @@ import SectionContact from './display/sections/contact/Contact';
 import RouterActions from './store/RouterActions';
 
 exports.routes = (
-  <Router onUpdate={function() {RouterActions.update.dispatch(this.state)}} history={createBrowserHistory()}>
+  <Router history={createBrowserHistory()}
+          onUpdate={function() {
+            RouterActions.update.dispatch(this.state)
+          }}
+    >
     <Route path="/" component={App}>
       <IndexRoute component={SectionHome} />
       <Route path="contact" component={SectionContact} />

@@ -650,9 +650,11 @@ var _storeRouterActions2 = _interopRequireDefault(_storeRouterActions);
 
 exports.routes = _react2['default'].createElement(
   _reactRouter.Router,
-  { onUpdate: function () {
+  { history: (0, _historyLibCreateBrowserHistory2['default'])(),
+    onUpdate: function () {
       _storeRouterActions2['default'].update.dispatch(this.state);
-    }, history: (0, _historyLibCreateBrowserHistory2['default'])() },
+    }
+  },
   _react2['default'].createElement(
     _reactRouter.Route,
     { path: '/', component: _displayApp2['default'] },

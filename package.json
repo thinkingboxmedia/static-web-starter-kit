@@ -15,7 +15,7 @@
     "watch:js": "watchify --delay 0 app/src/index.js -v -t [ babelify --sourceMaps=inline ] -g envify -o app/bundle.js",
     "watch:css": "node-sass --watch app/src/index.scss .tmp/bundle.css",
     "watch:postcss": "onchange .tmp/bundle.css -- postcss -u autoprefixer -c postcss.json -o app/bundle.css .tmp/bundle.css",
-    "watch:lint": "onchange app/src/**/*.js -- npm run lint",
+    "watch:lint": "onchange app/bundle.js -- npm run lint",
     "build": "NODE_ENV=production npm-run-all clean:dist build:js build:css build:html build:assets doc",
     "build:html": "html-minifier -c html-minifier.json app/index.html -o dist/index.html && replace '@@version' $npm_package_version dist/index.html",
     "build:js": "browserify app/src/index.js -t babelify -t [ envify --NODE_ENV production ] | uglifyjs -mc -o dist/bundle.js && gzip -9 dist/bundle.js -c > dist/bundle.js.gz",
