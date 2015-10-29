@@ -363,7 +363,7 @@ th {
   background: #ffffff url("/images/yeoman.png") no-repeat 5px 5px; }
   .component-header .setup-h2 {
     -webkit-transform: rotateX(180deg);
-    transform: rotateX(180deg); }
+            transform: rotateX(180deg); }
   .component-header h2 {
     position: relative;
     display: inline-block;
