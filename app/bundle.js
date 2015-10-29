@@ -144,8 +144,8 @@ var Background = (function (_Component) {
       section: ''
     };
 
-    var routerStore = new _storeRouterStore2['default']();
-    routerStore.updated.add(this.routerUpdatedHandler);
+    this._routerStore = new _storeRouterStore2['default']();
+    this._routerStore.changed.add(this.routerChangedHandler.bind(this));
   }
 
   /**
@@ -157,14 +157,14 @@ var Background = (function (_Component) {
     value: function componentDidMount() {}
 
     /**
-     * routerUpdatedHandler
+     * routerChangedHandler
      */
 
   }, {
-    key: 'routerUpdatedHandler',
-    value: function routerUpdatedHandler(route) {
+    key: 'routerChangedHandler',
+    value: function routerChangedHandler() {
 
-      console.log('Background::routerUpdatedHandler', route);
+      console.log(this._routerStore.route);
     }
 
     /**
@@ -710,7 +710,7 @@ var RouterStore = (function () {
 
     this.route = {};
 
-    this.updated = new _signals2['default']();
+    this.changed = new _signals2['default']();
 
     _RouterActions2['default'].update.add(this._update.bind(this));
   }
@@ -723,7 +723,9 @@ var RouterStore = (function () {
     key: '_update',
     value: function _update(route) {
 
-      this.updated.dispatch(route);
+      this.route = route;
+
+      this.changed.dispatch();
     }
   }]);
 
