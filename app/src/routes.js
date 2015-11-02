@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import createBrowserHistory from 'history/lib/createBrowserHistory';
+import createHashHistory from 'history/lib/createHashHistory';
 import { Router, Route, IndexRoute } from 'react-router';
 
 import App from './display/App';
@@ -12,7 +12,7 @@ import SectionContact from './display/sections/contact/Contact';
 import RouterActions from './store/RouterActions';
 
 exports.routes = (
-  <Router history={createBrowserHistory()}
+  <Router history={createHashHistory()}
           onUpdate={function() {
             RouterActions.update.dispatch(this.state)
           }}
