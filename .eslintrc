@@ -1,6 +1,7 @@
 {
   "parser": "babel-eslint",
   "plugins": [
+    "babel",
     "react"
   ],
   "env": {
@@ -9,7 +10,8 @@
     "es6": true
   },
   "ecmaFeatures": {
-    "jsx": true
+    "jsx": true,
+     "modules": true
   },
   "rules": {
     "accessor-pairs": 0,
@@ -29,9 +31,8 @@
     "no-unused-expressions": 2,
     "no-unused-vars": [2, "args": "none"],
     "quotes": [2, "single", "avoid-escape"],
-    "space-after-keywords": 2,
+    "keyword-spacing": 2,
     "space-before-blocks": 2,
-    "space-before-keywords": 0,
     "strict": [2, "global"],
 
     // React
