@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 import styles from './styles.css' 
 
 /**
- * Background component
+ * Preloader component
  */
-class Background extends Component {
+class Preloader extends Component {
 
   constructor(props) {
 
@@ -30,10 +30,10 @@ class Background extends Component {
 
     return (
       <div className={styles.wrapper}>
-        Background
+        Preloader
       </div>
     );
   }
 }
 
-module.exports = Background;
+module.exports = Preloader;

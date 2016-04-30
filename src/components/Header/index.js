@@ -5,18 +5,23 @@ import states from './states'
 import transitions from './transitions';
 import styles from './styles.css' 
 
+
+import { connect } from 'react-redux';
+import { logIn, logOut } from '../../actions';
+
 /**
- * ContactView Header
+ * Header component
  */
-export default class Header extends Component {
+class Header extends Component {
 
   constructor(props) {
 
     super(props);
 
-    this.clickHandler = this.clickHandler.bind(this);
-    this.mouseOverHandler = this.mouseOverHandler.bind(this);
-    this.mouseOutHandler = this.mouseOutHandler.bind(this);
+    this.clickLogHandler = this.clickLogHandler.bind(this);
+    this.clickLikeHandler = this.clickLikeHandler.bind(this);
+    this.mouseOverLikeHandler = this.mouseOverLikeHandler.bind(this);
+    this.mouseOutLikeHandler = this.mouseOutLikeHandler.bind(this);
 
     this.state = {
       go: 'idle',
@@ -29,15 +34,32 @@ export default class Header extends Component {
    */
 
   componentDidMount() {
-
+    console.log(this.state)
+    console.log(this.props)
 
   }
 
   /**
-   * clickHandler
+   * clickLogHandler
    */
 
-  clickHandler() {
+  clickLogHandler() {
+
+    console.log(this.props.isLoggedIn)
+
+    if (this.props.isLoggedIn) {
+      this.props.dispatch(logOut())
+    } else {
+      this.props.dispatch(logIn())
+    }
+    
+  }
+
+  /**
+   * clickLikeHandler
+   */
+
+  clickLikeHandler() {
 
     const isSelected = !this.state.isSelected;
 
@@ -48,10 +70,10 @@ export default class Header extends Component {
   }
 
   /**
-   * mouseOverHandler
+   * mouseOverLikeHandler
    */
 
-  mouseOverHandler() {
+  mouseOverLikeHandler() {
 
     if (this.state.go === 'idle') {
       this.setState({
@@ -61,10 +83,10 @@ export default class Header extends Component {
   }
 
   /**
-   * mouseOutHandler
+   * mouseOutLikeHandler
    */
 
-  mouseOutHandler() {
+  mouseOutLikeHandler() {
 
     if (this.state.go === 'over') {
       this.setState({
@@ -79,6 +101,8 @@ export default class Header extends Component {
    */
   render() {
 
+    const l = (this.props.isLoggedIn) ? 'LogOut' : 'LogIn';
+
     return (
       <ReactF1 className={styles.wrapper}
         go={this.state.go}
@@ -87,13 +111,35 @@ export default class Header extends Component {
       >
         <h1>Header</h1>
         <h2 data-f1="icon" className={styles.icon}
-          onClick={this.clickHandler}
-          onMouseOver={this.mouseOverHandler}
-          onMouseOut={this.mouseOutHandler}
+          onClick={this.clickLikeHandler}
+          onMouseOver={this.mouseOverLikeHandler}
+          onMouseOut={this.mouseOutLikeHandler}
         >
           ♡
         </h2>
+        <h3 onClick={this.clickLogHandler}>{l}</h3>
       </ReactF1>
     );
   }
 }
+
+
+function select(state) {
+
+  console.log(state)
+
+  return {
+    isLoggedIn: state.user.isLoggedIn,
+  };
+}
+
+function actions(dispatch) {
+  return {
+    logIn: () => dispatch(logIn()),
+    logOut: () => dispatch(logOut()),
+    dispatch,
+  };
+}
+
+module.exports = connect(select, actions)(Header);
+

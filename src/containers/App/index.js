@@ -8,6 +8,11 @@ import styles from './styles.css'
 /**
  * App component
  */
+
+const propTypes = {
+  children: PropTypes.element,
+};
+
 export default function App ({ children }) {
   return (
     <div className="wrapper">
@@ -20,6 +25,4 @@ export default function App ({ children }) {
   )
 }
 
-App.propTypes = {
-  children: PropTypes.element,
-}
+App.propTypes = propTypes;
