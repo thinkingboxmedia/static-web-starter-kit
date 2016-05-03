@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import ReactF1 from 'react-f1';
 
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+
 import states from './states'
 import transitions from './transitions';
 import styles from './styles.css' 
 
-
-import { connect } from 'react-redux';
-import { logIn, logOut } from '../../actions';
+import { logIn, logOut } from '../../actions/user';
 
 /**
  * Header component
  */
-class Header extends Component {
+export default class Header extends Component {
 
   constructor(props) {
 
@@ -45,12 +46,10 @@ class Header extends Component {
 
   clickLogHandler() {
 
-    console.log(this.props.isLoggedIn)
-
     if (this.props.isLoggedIn) {
-      this.props.dispatch(logOut())
+      this.props.logOut()
     } else {
-      this.props.dispatch(logIn())
+      this.props.logIn()
     }
     
   }
@@ -123,23 +122,19 @@ class Header extends Component {
   }
 }
 
-
-function select(state) {
-
-  console.log(state)
-
+function mapStateToProps(state) {
   return {
-    isLoggedIn: state.user.isLoggedIn,
+    isLoggedIn: true,
   };
 }
 
-function actions(dispatch) {
+function mapDispatchToProps(dispatch) {
   return {
-    logIn: () => dispatch(logIn()),
-    logOut: () => dispatch(logOut()),
-    dispatch,
+    actions: bindActionCreators({ logIn, logOut }, dispatch),
   };
 }
 
-module.exports = connect(select, actions)(Header);
-
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Header);

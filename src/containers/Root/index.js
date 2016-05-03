@@ -12,7 +12,7 @@ class Root extends React.Component {
 
   render () {
     return (
-      <Provider store={this.props.store}>
+      <Provider store={this.props.store} key="provider">
         <div>
           <Router history={this.props.history}>
             {this.props.routes}

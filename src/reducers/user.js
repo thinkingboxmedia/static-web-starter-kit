@@ -1,21 +1,28 @@
-export const LOGGED_IN = '@@user/LOGGED_IN'
-export const LOGGED_OUT = '@@user/LOGGED_OUT'
+import {
+  LOGGED_IN,
+  LOGGED_OUT,
+} from '../actions/user';
 
 const initialState = {
   isLoggedIn: false,
 }
 
-export function user(state = initialState, { type, payload } = {}) {
-  if (type === LOGGED_IN) {
-    return {
-      isLoggedIn: true,
-    };
-  }
-  if (type === LOGGED_OUT) {
-    return initialState;
-  }
+export default (state = initialState, action) => {
 
-  return state
+  console.log('reducers', action.type);
+
+  switch (action.type) {
+
+    case LOGGED_IN:
+      return {
+        ...state,
+        isLoggedIn: true,
+      };
+
+    case LOGGED_OUT:
+      return initialState;
+
+    default:
+      return state;
+  }
 }
-
-module.exports = user;
