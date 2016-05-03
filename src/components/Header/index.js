@@ -4,30 +4,46 @@ import ReactF1 from 'react-f1';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import states from './states'
+import { states, IDLE, OVER, SELECTED } from './states'
 import transitions from './transitions';
 import styles from './styles.css' 
+import i18n from './i18n';
 
-import { logIn, logOut } from '../../actions/user';
+import * as actionsUser from '../../actions/user';
 
 /**
  * Header component
  */
-class Header extends Component {
+
+const initialState = {
+  go: IDLE,
+  isSelected: false,
+}
+
+function mapStateToProps(state) {
+  return {
+    isLoggedIn: state.user.isLoggedIn,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actionsUser: bindActionCreators(actionsUser, dispatch),
+  };
+}
+
+@connect(mapStateToProps, mapDispatchToProps)
+export default class Header extends Component {
 
   constructor(props, context) {
 
     super(props, context);
+    this.state = initialState;
 
     this.clickLogHandler = this.clickLogHandler.bind(this);
     this.clickLikeHandler = this.clickLikeHandler.bind(this);
     this.mouseOverLikeHandler = this.mouseOverLikeHandler.bind(this);
     this.mouseOutLikeHandler = this.mouseOutLikeHandler.bind(this);
-
-    this.state = {
-      go: 'idle',
-      isSelected: false,
-    };
   }
 
   /**
@@ -35,8 +51,6 @@ class Header extends Component {
    */
 
   componentDidMount() {
-    console.log(this.state)
-    console.log(this.props)
 
   }
 
@@ -47,9 +61,9 @@ class Header extends Component {
   clickLogHandler() {
 
     if (this.props.isLoggedIn) {
-      this.props.actions.logOut()
+      this.props.actionsUser.logOut()
     } else {
-      this.props.actions.logIn()
+      this.props.actionsUser.logIn()
     }
     
   }
@@ -63,7 +77,7 @@ class Header extends Component {
     const isSelected = !this.state.isSelected;
 
     this.setState({
-      go : (isSelected) ? 'selected' : 'over',
+      go : (isSelected) ? SELECTED : OVER,
       isSelected: isSelected,
     });
   }
@@ -74,9 +88,9 @@ class Header extends Component {
 
   mouseOverLikeHandler() {
 
-    if (this.state.go === 'idle') {
+    if (this.state.go === IDLE) {
       this.setState({
-        go: 'over',
+        go: OVER,
       });
     }
   }
@@ -87,9 +101,9 @@ class Header extends Component {
 
   mouseOutLikeHandler() {
 
-    if (this.state.go === 'over') {
+    if (this.state.go === OVER) {
       this.setState({
-        go: 'idle',
+        go: IDLE,
       });
     }
   }
@@ -100,7 +114,7 @@ class Header extends Component {
    */
   render() {
 
-    const l = (this.props.isLoggedIn) ? 'LogOut' : 'LogIn';
+    const l = (this.props.isLoggedIn) ? i18n.LOGOUT : i18n.LOGIN;
 
     return (
       <ReactF1 className={styles.wrapper}
@@ -121,23 +135,3 @@ class Header extends Component {
     );
   }
 }
-
-function mapStateToProps(state) {
-
-  console.log('mapStateToProps', state);
-
-  return {
-    isLoggedIn: state.user.isLoggedIn,
-  };
-}
-
-function mapDispatchToProps(dispatch, ownProps) {
-  return {
-    actions: bindActionCreators({ logIn, logOut }, dispatch),
-  };
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Header);

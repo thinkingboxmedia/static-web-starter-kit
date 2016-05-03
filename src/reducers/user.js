@@ -10,8 +10,6 @@ const initialState = {
 
 export function user(state = initialState, action) {
 
-  console.log('reducers', action.type);
-
   switch (action.type) {
 
     case LOGGED_IN:

@@ -17,7 +17,7 @@ export default function configure (initialState = {}, history) {
 
   if (module.hot) {
     module.hot.accept('../reducers', () => {
-      store.replaceReducer(require('./../reducers').default);
+      store.replaceReducer(require('../reducers').default);
     });
   }
   return store;

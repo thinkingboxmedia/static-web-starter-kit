@@ -1,6 +1,10 @@
 import merge from 'deep-extend';
 
-module.exports = function states(props) {
+export const IDLE = 'idle'
+export const OVER = 'over'
+export const SELECTED = 'selected'
+
+export function states(props) {
   
  // props?
 
