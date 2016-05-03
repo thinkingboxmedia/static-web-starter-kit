@@ -7,7 +7,8 @@ const initialState = {
   isLoggedIn: false,
 }
 
-export default (state = initialState, action) => {
+
+export function user(state = initialState, action) {
 
   console.log('reducers', action.type);
 

@@ -3,17 +3,10 @@ export const LOGGED_OUT = '@@user/LOGGED_OUT'
 
 export function logIn(method) {
 
-  console.log('logIn', LOGGED_IN)
-
-  return (...args) => ({
-    type: LOGGED_IN,
-    payload: { method, args },
-  })
+  return { type: LOGGED_IN }
 }
 
 export function logOut(method) {
-  return (...args) => ({
-    type: LOGGED_OUT,
-    payload: { method, args },
-  })
+  
+  return { type: LOGGED_OUT }
 }

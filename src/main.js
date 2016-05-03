@@ -12,9 +12,8 @@ import configureStore from './store/configure'
 const browserHistory = useRouterHistory(createBrowserHistory)({
   basename: '/',
 })
-
-const initialState = window.__INITIAL_STATE__
-const store = configureStore(initialState, browserHistory)
+ 
+const store = configureStore(window.__INITIAL_STATE__, browserHistory)
 const history = syncHistoryWithStore(browserHistory, store)
 
 const routes = makeRoutes(store)

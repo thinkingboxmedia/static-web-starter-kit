@@ -13,11 +13,11 @@ import { logIn, logOut } from '../../actions/user';
 /**
  * Header component
  */
-export default class Header extends Component {
+class Header extends Component {
 
-  constructor(props) {
+  constructor(props, context) {
 
-    super(props);
+    super(props, context);
 
     this.clickLogHandler = this.clickLogHandler.bind(this);
     this.clickLikeHandler = this.clickLikeHandler.bind(this);
@@ -47,9 +47,9 @@ export default class Header extends Component {
   clickLogHandler() {
 
     if (this.props.isLoggedIn) {
-      this.props.logOut()
+      this.props.actions.logOut()
     } else {
-      this.props.logIn()
+      this.props.actions.logIn()
     }
     
   }
@@ -123,12 +123,15 @@ export default class Header extends Component {
 }
 
 function mapStateToProps(state) {
+
+  console.log('mapStateToProps', state);
+
   return {
-    isLoggedIn: true,
+    isLoggedIn: state.user.isLoggedIn,
   };
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch, ownProps) {
   return {
     actions: bindActionCreators({ logIn, logOut }, dispatch),
   };
