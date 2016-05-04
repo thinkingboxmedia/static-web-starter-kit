@@ -10,9 +10,6 @@ body {
   width: 100%;
 }
 
-:local(.wrapper) {
-  max-width: 5em;
-  margin: 0 auto;
-  display: flex;
+.wrapper {
   background-color: var(--palette-primary); 
 }

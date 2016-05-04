@@ -1,28 +1,30 @@
 import eases from 'eases';
 
+import { IDLE, OVER, SELECTED } from './states'
+
 module.exports = function transitions() {
 
   return [
     { 
-      from: 'idle', to: 'over', animation: {
+      from: IDLE, to: OVER, animation: {
         duration: 0.25,
         ease: eases.backOut,
       },
     },
     { 
-      from: 'over', to: 'idle', animation: {
+      from: OVER, to: IDLE, animation: {
         duration: 0.25,
         ease: eases.expoOut,
       },
     },
     { 
-      from: 'over', to: 'selected', bi: true, animation: {
+      from: OVER, to: SELECTED, bi: true, animation: {
         duration: 0.5,
         ease: eases.expoIn,
       },
     },
     { 
-      from: 'idle', to: 'selected', bi: true, animation: {
+      from: IDLE, to: SELECTED, bi: true, animation: {
         duration: 0.5,
         ease: eases.expoIn,
       },

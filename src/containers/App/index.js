@@ -15,7 +15,7 @@ const propTypes = {
 
 export default function App ({ children }) {
   return (
-    <div className="wrapper">
+    <div className={styles.wrapper}>
       <Header />
       <div className={styles.wrapper}>
         {children}

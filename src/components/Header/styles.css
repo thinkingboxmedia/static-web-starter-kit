@@ -1,8 +1,10 @@
-:local(.wrapper) {
-  background-color: #0000ff; 
+.wrapper {
+  background-color: #ff0000; 
 }
 
-:local(.icon) {
-  position: absolute;
+.icon {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
   background-color: #00ff00; 
 }
