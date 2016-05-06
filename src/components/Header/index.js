@@ -36,7 +36,7 @@ export default class Header extends Component {
 
   static get propTypes() {
     return {
-      isLoggedIn: PropTypes.boolean,
+      isLoggedIn: PropTypes.bool,
       actionsUser: PropTypes.object,
     };
   }
