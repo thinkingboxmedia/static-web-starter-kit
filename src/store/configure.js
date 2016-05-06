@@ -1,5 +1,8 @@
+import configureDev from './configure.prod';
+import configureProd from './configure.dev';
+
 if (process.env.NODE_ENV === 'production') {
-  module.exports = require('./configure.prod');
+  module.exports = configureProd;
 } else {
-  module.exports = require('./configure.dev');
+  module.exports = configureDev;
 }

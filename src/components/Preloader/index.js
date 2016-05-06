@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 
-import styles from './styles.css' 
+import styles from './styles.css';
 
 /**
  * Preloader component
  */
-class Preloader extends Component {
+
+export default class Preloader extends Component {
 
   constructor(props) {
 
@@ -35,5 +36,3 @@ class Preloader extends Component {
     );
   }
 }
-
-module.exports = Preloader;

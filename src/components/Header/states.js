@@ -1,23 +1,20 @@
 import merge from 'deep-extend';
 
-export const IDLE = 'idle'
-export const OVER = 'over'
-export const SELECTED = 'selected'
+export const IDLE = 'idle';
+export const OVER = 'over';
+export const SELECTED = 'selected';
 
-export function states(props) {
-  
- // props?
-
+export function states() {
   /**
    * IDLE
    */
 
-  var idle = {
+  const idle = {
     icon: {
       style: {
-        transformOrigin: [ 0.5, 0.5 ],
-        scale: [ 0.5, 0.5 ],
-        rotate: [ 0, 0, 0 ],
+        transformOrigin: [0.5, 0.5],
+        scale: [0.5, 0.5],
+        rotate: [0, 0, 0],
       },
     },
   };
@@ -26,13 +23,13 @@ export function states(props) {
    * OVER
    */
 
-  var over = merge(
+  const over = merge(
     {},
     idle,
     {
       icon: {
         style: {
-          rotate: [ 0, 0, 90 ],
+          rotate: [0, 0, 90],
         },
       },
     }
@@ -42,13 +39,13 @@ export function states(props) {
    * SELECTED
    */
 
-  var selected = merge(
+  const selected = merge(
     {},
     idle,
     {
       icon: {
         style: {
-          scale: [ 1, 1 ],
+          scale: [1, 1],
         },
       },
     }
@@ -57,8 +54,8 @@ export function states(props) {
   //
 
   return {
-    idle: idle,
-    over: over,
-    selected: selected,
+    idle,
+    over,
+    selected,
   };
-};
+}

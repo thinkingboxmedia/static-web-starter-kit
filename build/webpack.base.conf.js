@@ -29,7 +29,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'eslint',
-        include: projectRoot,
+        include: projectRoot + 'src/',
         exclude: /node_modules/,
       },
     ],
