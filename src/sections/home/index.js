@@ -1,19 +1,39 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router';
 
 import styles from './styles.css';
 
 /**
- * Home component
+ * Home section
  */
- /**
- * Contact component
- */
-export default function Contact() {
-  return (
-    <section className={styles.wrapper}>
-      Homepage section
-      <Link to="/contact">&#9998; <b>Contact</b></Link>
-    </section>
-  );
+export default class Home extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+    	items: ['HTML5 Boilerplate', 'React.js', '... & more']
+    };
+  }
+
+  /**
+   * render
+   * @return {ReactElement} markup
+   */
+  render() {
+
+    return (
+      <section className={styles.section}>
+        <h1>Allo!</h1>
+        <p>You now have:</p>
+        <ul>
+          {this.state.items.map(function(item, key) {
+            return <li key={key}><span> {item}</span></li>;
+          })}
+        </ul>
+        <aside className={styles.navigation}>
+          <Link to="/contact">&#9998; <b>Contact</b></Link>
+        </aside>
+      </section>
+    );
+  }
 }

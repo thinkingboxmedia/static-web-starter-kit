@@ -1,3 +1,31 @@
-.wrapper {
-  background-color: #ffff00; 
+@import '../../styles/palette.css';
+
+.section {
+  width: 100%;
+  text-align: center;
+  color: var(--palette-tertiary); 
 }
+
+.section h1 {
+
+}
+
+.section ul {
+	padding: 0;
+}
+
+.section li {
+	display: block;
+	margin: 1em;
+}
+
+.section .navigation {
+  padding: 2em 0 0 0;
+  text-align: center;
+}
+
+.section .navigation a{
+  color: var(--palette-secondary); 
+  text-decoration: none;
+}
+

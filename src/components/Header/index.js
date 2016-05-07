@@ -120,13 +120,12 @@ export default class Header extends Component {
 
     return (
       <ReactF1
-        className={styles.wrapper}
+        className={styles.component}
         go={this.state.go}
         states={states()}
         transitions={transitions()}
       >
-        <h1>Header</h1>
-        <h2
+        <span
           data-f1="icon"
           className={styles.icon}
           onClick={this.clickLikeHandler}
@@ -134,8 +133,8 @@ export default class Header extends Component {
           onMouseOut={this.mouseOutLikeHandler}
         >
           ♡
-        </h2>
-        <h3 onClick={this.clickLogHandler}>{l}</h3>
+        </span>
+        <a href="#" onClick={this.clickLogHandler}>{l}</a>
       </ReactF1>
     );
   }

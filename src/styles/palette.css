@@ -3,5 +3,7 @@
  */
 
 :root{
-    --palette-primary: #2a00b3;
+	--palette-primary: #670858;
+    --palette-secondary: #c741b2;
+    --palette-tertiary: #ffffff;
 }

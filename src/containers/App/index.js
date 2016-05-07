@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 
 import Header from '../../components/Header';
-import Background from '../../components/Background';
 
 import styles from './styles.css';
 
@@ -15,12 +14,11 @@ const PROP_TYPES = {
 
 export default function App({ children }) {
   return (
-    <div className={styles.wrapper}>
+    <div>
       <Header />
       <div className={styles.wrapper}>
         {children}
       </div>
-      <Background />
     </div>
   );
 }
