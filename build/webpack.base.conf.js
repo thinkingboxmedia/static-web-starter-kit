@@ -1,8 +1,6 @@
 
 var path = require('path')
 var projectRoot = path.resolve(__dirname, '../')
-var cssnext = require('postcss-cssnext');
-var postcssImport = require('postcss-import');
 
 module.exports = {
   entry: {
@@ -54,12 +52,12 @@ module.exports = {
       },
     ],
   },
-  postcss: function (webpack) {
+  postcss: function(webpack) {
     return [
-      postcssImport({
-        addDependencyTo: webpack,
+      require('postcss-import')({
+        addDependencyTo: webpack
       }),
-      cssnext({ browsers: ['last 2 versions', 'Android >= 2.1'] }),
+      require('postcss-cssnext')({ browsers: ['last 2 versions', 'Android >= 2.1'] }),
     ]
   },
   eslint: {
