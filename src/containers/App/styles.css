@@ -5,10 +5,7 @@
 @import '../../styles/palette.css';
 
 html,
-body {
-  background-color: var(--palette-primary); 
-}
-
+body, 
 .wrapper {
   background-color: var(--palette-primary); 
 }

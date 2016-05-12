@@ -6,7 +6,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 
 // add hot-reload related code to entry chunks
 Object.keys(baseConfig.entry).forEach(function (name) {
-  baseConfig.entry[name] = ['./build/dev-client'].concat(baseConfig.entry[name])
+  baseConfig.entry[name] = ['./tools/dev-client'].concat(baseConfig.entry[name])
 })
 
 module.exports = merge(baseConfig, {
@@ -35,6 +35,7 @@ module.exports = merge(baseConfig, {
       filename: 'index.html',
       template: 'index.template.html',
       inject: true,
+      GoogleAnalytics: 'UA-XXXXXX',
     }),
   ],
 })

@@ -5,7 +5,7 @@ var projectRoot = path.resolve(__dirname, '../')
 module.exports = {
   entry: {
     app: './src/main.js',
-    vendors: ['react', 'react-dom', 'react-redux', 'redux', 'react-router', 'history'],
+    vendors: ['react', 'react-dom', 'react-redux', 'redux', 'react-router', 'history', 'react-f1'],
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
