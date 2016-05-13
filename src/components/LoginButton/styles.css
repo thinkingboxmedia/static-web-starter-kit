@@ -1,0 +1,10 @@
+@import '../../styles/palette.css';
+
+.component {
+  padding: 1em;
+  color: var(--palette-secondary);
+  text-transform: uppercase;
+  font-size: 0.8em;
+  text-decoration: none;
+  border: 1px solid var(--palette-primary);
+}
