@@ -1,5 +1,7 @@
 
 var path = require('path')
+var precss = require('precss')
+var autoprefixer = require('autoprefixer')
 var projectRoot = path.resolve(__dirname, '../')
 
 module.exports = {
@@ -57,7 +59,9 @@ module.exports = {
       require('postcss-import')({
         addDependencyTo: webpack
       }),
-      require('postcss-cssnext')({ browsers: ['last 2 versions', 'Android >= 2.1'] }),
+      ,
+      precss, 
+      autoprefixer,
     ]
   },
   eslint: {
