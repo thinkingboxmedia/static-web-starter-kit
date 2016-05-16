@@ -1,9 +1,19 @@
-export const LOGGED_IN = '@@user/LOGGED_IN';
-export const LOGGED_OUT = '@@user/LOGGED_OUT';
+import {
+  LOGGED_IN,
+  LOGGED_OUT,
+} from './userActionsType';
+
+/**
+ * logIn
+ */
 
 export function logIn() {
   return { type: LOGGED_IN };
 }
+
+/**
+ * logOut
+ */
 
 export function logOut() {
   return { type: LOGGED_OUT };

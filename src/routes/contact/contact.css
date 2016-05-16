@@ -1,18 +1,18 @@
 @import '../../styles/palette.css';
 
-.section {
+.contact {
   width: 100%;
   text-align: center;
-  color: var(--palette-tertiary); 
+  color: $palette-tertiary; 
 }
 
-.section .navigation {
+.contact .navigation {
   padding: 2em 0 0 0;
   text-align: center;
 }
 
-.section .navigation a{
-  color: var(--palette-secondary); 
+.contact .navigation a {
+  color: $palette-secondary; 
   text-decoration: none;
 }
 

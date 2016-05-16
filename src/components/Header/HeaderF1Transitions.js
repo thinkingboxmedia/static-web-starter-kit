@@ -1,11 +1,11 @@
 import eases from 'eases';
 
-import { IDLE, OVER, SELECTED } from './states';
+import { IDLE, OVER, SELECTED } from './HeaderF1States';
 
-module.exports = function transitions() {
+export default function transitions() {
   return [
     {
-      from: IDLE, to: OVER, animation: {
+      from: IDLE, to: OVER, bi: true, animation: {
         duration: 0.25,
         ease: eases.backOut,
       },

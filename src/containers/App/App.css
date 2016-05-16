@@ -1,4 +1,4 @@
-@import 'normalize.css';
+@import '../../../node_modules/normalize.css/normalize.css';
 @import '../../styles/helpers.css';
 @import '../../styles/fonts.css';
 
@@ -6,6 +6,6 @@
 
 html,
 body, 
-.wrapper {
-  background-color: var(--palette-primary); 
+.App {
+  background-color: $palette-primary; 
 }

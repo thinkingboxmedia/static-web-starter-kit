@@ -1,8 +1,8 @@
 
 var path = require('path')
-var precss = require('precss')
-var autoprefixer = require('autoprefixer')
 var projectRoot = path.resolve(__dirname, '../')
+var precss       = require('precss');
+var autoprefixer = require('autoprefixer');
 
 module.exports = {
   entry: {
@@ -54,15 +54,8 @@ module.exports = {
       },
     ],
   },
-  postcss: function(webpack) {
-    return [
-      require('postcss-import')({
-        addDependencyTo: webpack
-      }),
-      ,
-      precss, 
-      autoprefixer,
-    ]
+  postcss: function () {
+    return [precss, autoprefixer];
   },
   eslint: {
     formatter: require('eslint-friendly-formatter'),

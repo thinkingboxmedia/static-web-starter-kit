@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 
-import styles from './styles.css';
+import styles from './home.css';
 
 /**
  * Home section
@@ -22,7 +22,7 @@ export default class Home extends Component {
   render() {
 
     return (
-      <section className={styles.section}>
+      <section className={styles.home}>
         <h1>Allo!</h1>
         <p>You now have:</p>
         <ul>

@@ -2,8 +2,6 @@
  * Colors available
  */
 
-:root{
-	--palette-primary: #670858;
-    --palette-secondary: #c741b2;
-    --palette-tertiary: #ffffff;
-}
+$palette-primary: #670858;
+$palette-secondary: #c741b2;
+$palette-tertiary: #ffffff;

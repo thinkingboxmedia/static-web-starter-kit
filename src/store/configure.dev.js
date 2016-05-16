@@ -1,6 +1,6 @@
 import { applyMiddleware, createStore, compose } from 'redux';
 import thunk from 'redux-thunk';
-import reducers from '../reducers';
+import reducers from '../containers/App/reducers';
 import { routerMiddleware } from 'react-router-redux';
 
 export default function configure(initialState = {}, history) {
@@ -15,7 +15,7 @@ export default function configure(initialState = {}, history) {
   const store = createStore(reducers, initialState, enhancer);
 
   if (module.hot) {
-    module.hot.accept('../reducers', () => {
+    module.hot.accept('../containers/App/reducers', () => {
       store.replaceReducer(reducers.default);
     });
   }
