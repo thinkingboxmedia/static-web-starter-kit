@@ -4,17 +4,6 @@ var merge = require('webpack-merge')
 var baseConfig = require('./webpack.base.conf')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 
-const AUTOPREFIXER_BROWSERS = [
-  'Android 2.3',
-  'Android >= 4',
-  'Chrome >= 35',
-  'Firefox >= 31',
-  'Explorer >= 9',
-  'iOS >= 7',
-  'Opera >= 12',
-  'Safari >= 7.1',
-];
-
 // add hot-reload related code to entry chunks
 Object.keys(baseConfig.entry).forEach(function (name) {
   baseConfig.entry[name] = ['./tools/dev-client'].concat(baseConfig.entry[name])

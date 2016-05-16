@@ -4,17 +4,7 @@ var merge = require('webpack-merge')
 var baseConfig = require('./webpack.base.conf')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
-
-const AUTOPREFIXER_BROWSERS = [
-  'Android 2.3',
-  'Android >= 4',
-  'Chrome >= 35',
-  'Firefox >= 31',
-  'Explorer >= 9',
-  'iOS >= 7',
-  'Opera >= 12',
-  'Safari >= 7.1',
-];
+var CompressionPlugin = require('compression-webpack-plugin');
 
 // whether to generate source map for production files.
 // disabling this can speed up the build.
@@ -79,5 +69,6 @@ module.exports = merge(baseConfig, {
         // https://github.com/kangax/html-minifier#options-quick-reference
       },
     }),
+    new CompressionPlugin()
   ],
 })
