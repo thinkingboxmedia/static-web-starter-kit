@@ -1,6 +1,5 @@
 node_modules
 dist
-docs
 .idea
 .sass-cache
 .tmp

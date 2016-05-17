@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/thinkingboxmedia/React-boilerplate#readme",
   "engines": {
-    "node": ">=0.12.0"
+    "node": ">=5.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
