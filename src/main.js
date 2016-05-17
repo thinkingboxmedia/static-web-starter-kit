@@ -1,4 +1,3 @@
-import domready from 'detect-dom-ready';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import createBrowserHistory from 'history/lib/createBrowserHistory';
@@ -17,9 +16,7 @@ const history = syncHistoryWithStore(browserHistory, store);
 
 const routes = makeRoutes(store);
 
-domready(() => {
-  ReactDOM.render(
-    <Root history={history} routes={routes} store={store} />,
-	document.getElementById('root')
-  );
-});
+ReactDOM.render(
+  <Root history={history} routes={routes} store={store} />,
+  document.getElementById('root')
+);

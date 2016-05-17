@@ -60,7 +60,7 @@ export default class LoginButton extends Component {
 
     return (
       <span className={styles.LoginButton}>
-        <a href="#" onClick={this.clickHandler}>{l}</a>
+        <a onClick={this.clickHandler}>{l}</a>
       </span>
     );
   }

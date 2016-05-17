@@ -40,7 +40,6 @@
     "connect-history-api-fallback": "^1.2.0",
     "css-loader": "^0.23.1",
     "deep-extend": "^0.4.1",
-    "detect-dom-ready": "^1.0.2",
     "eases": "^1.0.8",
     "enzyme": "^2.3.0",
     "eslint": "^2.10.2",

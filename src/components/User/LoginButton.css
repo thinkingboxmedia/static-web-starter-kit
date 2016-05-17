@@ -7,4 +7,10 @@
   font-size: 0.8em;
   text-decoration: none;
   border: 1px solid $palette-primary;
+  cursor: pointer;
+
+  &:hover {
+  	background-color: $palette-primary;
+  	color: $palette-tertiary;
+  }
 }
