@@ -1,7 +1,7 @@
 @import '../../../node_modules/normalize.css/normalize.css';
-@import '../../styles/helpers.css';
 @import '../../styles/fonts.css';
-
+@import '../../styles/helpers.css';
+@import '../../styles/layout.css';
 @import '../../styles/palette.css';
 
 html,

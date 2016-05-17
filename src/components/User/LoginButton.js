@@ -11,25 +11,19 @@ import * as actions from './userActions';
  * Redux
  */
 
-/* eslint-disable */
-const mapStateToProps = (state) => {
-  return {
-    isLoggedIn: state.user.isLoggedIn,
-  };
-};
+const mapStateToProps = (state) => ({
+  isLoggedIn: state.user.isLoggedIn,
+});
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    actions: bindActionCreators(actions, dispatch),
-  };
-};
-/* eslint-enable */
+const mapDispatchToProps = (dispatch) => ({
+  actions: bindActionCreators(actions, dispatch),
+});
 
 /**
  * LoginButton component
  */
-
-class LoginButton extends Component {
+@connect(mapStateToProps, mapDispatchToProps)
+export default class LoginButton extends Component {
 
   static get propTypes() {
     return {
@@ -71,5 +65,3 @@ class LoginButton extends Component {
     );
   }
 }
-
-export default connect(mapStateToProps, mapDispatchToProps)(LoginButton);
