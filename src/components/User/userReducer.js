@@ -13,7 +13,6 @@ export function user(state = initialState, action) {
 
     case LOGGED_IN:
       return {
-        ...state,
         isLoggedIn: true,
       };
 

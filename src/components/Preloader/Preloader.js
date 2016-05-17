@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import styles from './styles.css';
+import styles from './Preloader.css';
 
 /**
  * Preloader component
@@ -30,7 +30,7 @@ export default class Preloader extends Component {
   render() {
 
     return (
-      <div className={styles.wrapper}>
+      <div className={styles.Preloader}>
         Preloader
       </div>
     );

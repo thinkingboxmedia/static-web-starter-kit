@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import ReactF1 from 'react-f1';
 
 import UserLoginButton from '../User/LoginButton';

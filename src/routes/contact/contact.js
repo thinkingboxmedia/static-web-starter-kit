@@ -10,6 +10,9 @@ export default class Contact extends Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      hi: ['Hello', 'Bonjour', '¡Hola'],
+    };
   }
 
   /**
@@ -17,16 +20,15 @@ export default class Contact extends Component {
    * @return {ReactElement} markup
    */
   render() {
-
     return (
-	  <section className={styles.contact}>
-  		<div>
-  		  <h2> Contact section!</h2>
-  		  <aside className={styles.navigation}>
-          <Link to="/">← Back</Link>
-  		  </aside>
-  		</div>
-	  </section>
+      <section className={styles.contact}>
+        <div>
+          <h2> Contact section!</h2>
+          <aside className={styles.navigation}>
+            <Link to="/">← Back</Link>
+          </aside>
+        </div>
+      </section>
     );
   }
 }
