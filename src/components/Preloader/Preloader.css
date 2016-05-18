@@ -1,3 +1,5 @@
 .Preloader {
+  position: absolute;
+  z-index: 1000;
   background-color: #ffff00; 
 }
