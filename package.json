@@ -63,6 +63,7 @@
     "postcss-import": "^8.1.2",
     "postcss-loader": "^0.9.1",
     "precss": "^1.4.0",
+    "preloader": "^1.1.0",
     "react": "^15.0.2",
     "react-dom": "^15.0.2",
     "react-f1": "^7.1.3",

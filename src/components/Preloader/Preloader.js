@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import ReactF1 from 'react-f1';
 import Resize from 'brindille-resize';
+import Loader from 'preloader';
 
 import { states, IDLE, SHOW, HIDE } from './PreloaderF1States';
 import transitions from './PreloaderF1Transitions';
@@ -27,6 +28,10 @@ export default class Preloader extends Component {
       height: 0,
     };
 
+    this.loader = new Loader();
+
+    this.loaderProgressHandler = this.loaderProgressHandler.bind(this);
+    this.loaderCompleteHandler = this.loaderCompleteHandler.bind(this);
     this.resizeHandler = this.resizeHandler.bind(this);
     this.completeF1Handler = this.completeF1Handler.bind(this);
   }
@@ -60,14 +65,31 @@ export default class Preloader extends Component {
   }
 
   /**
+   * loaderProgressHandler
+   */
+  loaderProgressHandler(progress) {
+    this.setState({ progress });
+  }
+
+  /**
+   * loaderCompleteHandler
+   */
+  loaderCompleteHandler() {
+    this.loader.onProgress.remove(this.loaderProgressHandler);
+    this.props.onLoaded();
+    this.hide();
+  }
+
+  /**
    * load
    */
   load() {
-    window.setTimeout(() => {
-      this.props.onLoaded();
-      this.setState({ progress: 100 });
-      this.hide();
-    }, 1000);
+    this.loader.onProgress.add(this.loaderProgressHandler);
+    this.loader.onComplete.addOnce(this.loaderCompleteHandler);
+
+    this.loader.add('/assets/images/yeoman.png');
+
+    this.loader.load();
   }
 
   /**
