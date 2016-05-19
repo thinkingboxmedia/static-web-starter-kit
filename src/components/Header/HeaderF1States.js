@@ -1,8 +1,7 @@
 import merge from 'deep-extend';
 
 export const IDLE = 'idle';
-export const OVER = 'over';
-export const SELECTED = 'selected';
+export const SHOW = 'show';
 
 export function states() {
   /**
@@ -10,42 +9,24 @@ export function states() {
    */
 
   const idle = {
-    icon: {
+    container: {
       style: {
-        transformOrigin: [0.5, 0.5],
-        scale: [0.5, 0.5],
-        rotate: [0, 0, 0],
+        translate: [0, 0, 0],
       },
     },
   };
 
   /**
-   * OVER
+   * SHOW
    */
 
-  const over = merge(
+  const show = merge(
     {},
     idle,
     {
-      icon: {
+      container: {
         style: {
-          rotate: [0, 0, 90],
-        },
-      },
-    }
-  );
-
-  /**
-   * SELECTED
-   */
-
-  const selected = merge(
-    {},
-    idle,
-    {
-      icon: {
-        style: {
-          scale: [1, 1],
+          translate: [0, -150, 0],
         },
       },
     }
@@ -55,7 +36,6 @@ export function states() {
 
   return {
     idle,
-    over,
-    selected,
+    show,
   };
 }

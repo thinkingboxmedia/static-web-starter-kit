@@ -1,20 +1,15 @@
 @import '../../styles/palette.css';
 
 .Header {
-  height:5em;
-  width: 100%;	
-  text-align: center;
-  color: #000;
-  background: url("/assets/images/yeoman.png") $palette-tertiary no-repeat 5px 5px;
+  width: 100%;  
 
-  .icon {
-    display: inline-block;
-    margin: 0.5em 0 0 0;
-    padding: 0;
-    font-size: 2em;
-    cursor: crosshair;
+  .container {
+    height: 80px;
+    width: 100%;  
+    text-align: center;
+    color: #000;
+    background: url("/assets/images/yeoman.png") $palette-tertiary no-repeat 5px 5px;
   }
-
   .login {
     position: absolute;
     top: 2em;

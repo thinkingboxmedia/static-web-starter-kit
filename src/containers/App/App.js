@@ -62,7 +62,7 @@ export default class App extends Component {
    */
   render() {
     const p = (
-      <Preloader loaded={this.preloaderLoadedHandler} hidden={this.preloaderHiddenHandler} />
+      <Preloader onLoaded={this.preloaderLoadedHandler} onHidden={this.preloaderHiddenHandler} />
     );
     let preloader = (this.state.isPreloaderHidden) ? '' : p;
     let content = (this.state.isPreloaderLoaded) ? this.renderContent() : '';
