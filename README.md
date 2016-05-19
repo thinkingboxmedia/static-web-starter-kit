@@ -13,19 +13,15 @@ A front-end template that helps you build fast, modern mobile web apps. (IE9+) @
 ## Getting Started
 
 - Install: `npm install`
-- Run: `npm run serve`
+- Run: `npm run dev`
 
 ## Features
 
-* [React](http://facebook.github.io/react/) / [Browserify](http://browserify.org/) ♡
-* [Velocity - React Animation Plugin](https://github.com/twitter-fabric/velocity-react)
-* Flux-like store example (with [js-signals](http://millermedeiros.github.io/js-signals/))
-* CSS Autoprefixing
-* Built-in preview server with [BrowserSync](http://www.browsersync.io/)
-* Automagically compile Sass / ES6
-* Automagically lint your scripts
-* Unit Testing with [Prova](https://github.com/azer/prova)
-
+* [React](http://facebook.github.io/react/) / ES6 (https://babeljs.io/) / [Webpack](https://webpack.github.io/) ♡
+* Hot module replacement with webpack-hot-middleware (https://github.com/glenjamin/webpack-hot-middleware)
+* Data flow with react-redux (https://github.com/rackt/react-redux)
+* Routing with react-router-redux (https://github.com/rackt/react-router-redux)
+* Code linting with ESLint (http://eslint.org)
 
 
 #### Third-Party Dependencies
@@ -48,12 +44,4 @@ $ npm run test
 
 ```sh
 $ npm run build
-```
-
-## Docs
-
-[ESDoc](https://esdoc.org/)
-
-```sh
-$ npm run doc
 ```
