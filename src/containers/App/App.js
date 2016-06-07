@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
-import Preloader from '../../components/Preloader';
-import Header from '../../components/Header';
+import { Header, Preloader } from '../../components';
 
 import styles from './App.css';
 
