@@ -29,7 +29,7 @@ module.exports = merge(baseConfig, {
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: '"production"',
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
       },
     }),
 
@@ -38,9 +38,12 @@ module.exports = merge(baseConfig, {
     }),
 
     new webpack.optimize.UglifyJsPlugin({
+      beautify: false,
       compress: {
         warnings: false,
-      },
+        drop_console: true,
+        screw_ie8: true
+      }
     }),
 
     new webpack.optimize.OccurrenceOrderPlugin(),
