@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import ReactF1 from 'react-f1';
 
-import UserLoginButton from '../User/LoginButton';
-import UserLikeButton from '../User/LikeButton';
+import { UserLoginButton, UserLikeButton } from '../';
 
 import { states, IDLE, SHOW } from './HeaderF1States';
 import transitions from './HeaderF1Transitions';
