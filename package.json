@@ -5,6 +5,7 @@
   "main": "src/main.js",
   "scripts": {
     "dev": "node tools/dev-server.js",
+    "generate": "plop --plopfile tools/generators/index.js",
     "build": "cross-env NODE_ENV=production node tools/build.js && http-server -p 9000 dist/ -o",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -55,6 +56,7 @@
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.13.4",
     "extract-text-webpack-plugin": "^1.0.1",
+    "fs": "0.0.2",
     "history": "^2.1.2",
     "html-webpack-plugin": "^2.17.0",
     "http-proxy-middleware": "^0.15.1",
@@ -62,6 +64,7 @@
     "json-loader": "^0.5.4",
     "normalize.css": "^4.1.1",
     "ora": "^0.2.3",
+    "plop": "^1.5.0",
     "postcss-import": "^8.1.2",
     "postcss-loader": "^0.9.1",
     "precss": "^1.4.0",
