@@ -67,7 +67,7 @@ Adds a new class component with the component name specified using the following
 Adds a new Redux-connected container class component with the component name specified using the following structure:
 
 ```
-/components
+/containers
     /ComponentName
         ComponentName.js
         ComponentName.css
