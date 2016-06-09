@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 
-import styles from './contact.css';
+import styles from './Contact.css';
 
 /**
  * Contact component
