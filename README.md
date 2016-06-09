@@ -71,9 +71,9 @@ Adds a new Redux-connected container class component with the component name spe
     /ComponentName
         ComponentName.js
         ComponentName.css
-        componentActionTypes.js
-        componentActions.js
-        componentReducer.js
+        componentNameActionTypes.js
+        componentNameActions.js
+        componentNameReducer.js
 ```
 
 The component reducer will be automatically imported and added to the combineReducers root-reducer created in `/store/reducers.js`.
