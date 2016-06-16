@@ -1,18 +1,9 @@
 @import '../../styles/palette.css';
 
-.home {
+.contactPage {
   width: 100%;
   text-align: center;
   color: $palette-tertiary; 
-
-  ul {
-    padding: 0;
-  }
-
-  li {
-    display: block;
-    margin: 1em;
-  }
 
   .navigation {
     padding: 2em 0 0 0;
