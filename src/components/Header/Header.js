@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import ReactF1 from 'react-f1';
 
-import UserLoginButton from '../User/LoginButton';
 import UserLikeButton from '../User/LikeButton';
 
 import { states, IDLE, SHOW } from './HeaderF1States';
@@ -13,6 +12,12 @@ import styles from './Header.css';
  */
 
 export default class Header extends Component {
+
+  static get propTypes() {
+    return {
+      children: PropTypes.element,
+    };
+  }
 
   constructor(props, context) {
     super(props, context);
@@ -45,7 +50,7 @@ export default class Header extends Component {
         <div data-f1="container" className={styles.container}>
           <UserLikeButton />
           <span className={styles.login}>
-            <UserLoginButton />
+            {this.props.children}
           </span>
         </div>
       </ReactF1>

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 
-import styles from './Contact.css';
+import styles from './ContactPage.css';
 
 /**
- * Contact component
+ * ContactPage component
  */
-export default class Contact extends Component {
+export default class ContactPage extends Component {
 
   constructor(props) {
     super(props);
@@ -21,7 +21,7 @@ export default class Contact extends Component {
    */
   render() {
     return (
-      <section className={styles.contact}>
+      <section className={styles.contactPage}>
         <div>
           <h2> Contact section!</h2>
           <aside className={styles.navigation}>

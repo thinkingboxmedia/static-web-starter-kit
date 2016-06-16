@@ -1,34 +1,17 @@
 import React, { Component, PropTypes } from 'react';
 
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-
 import styles from './LoginButton.css';
-
-import * as actions from './userActions';
-
-/**
- * Redux
- */
-
-const mapStateToProps = (state) => ({
-  isLoggedIn: state.user.isLoggedIn,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  actions: bindActionCreators(actions, dispatch),
-});
 
 /**
  * LoginButton component
  */
-@connect(mapStateToProps, mapDispatchToProps)
 export default class LoginButton extends Component {
 
   static get propTypes() {
     return {
       isLoggedIn: PropTypes.bool,
-      actions: PropTypes.object,
+      onLogIn: PropTypes.func.isRequired,
+      onLogOut: PropTypes.func.isRequired,
     };
   }
 
@@ -45,9 +28,9 @@ export default class LoginButton extends Component {
 
   clickHandler() {
     if (this.props.isLoggedIn) {
-      this.props.actions.logOut();
+      this.props.onLogOut();
     } else {
-      this.props.actions.logIn();
+      this.props.onLogIn();
     }
   }
 

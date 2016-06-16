@@ -2,14 +2,14 @@ import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 
 import App from './containers/App';
-import Home from './containers/Home';
-import Contact from './containers/Contact';
-import NotFound from './containers/NotFound';
+import HomePage from './containers/HomePage';
+import ContactPage from './containers/ContactPage';
+import NotFoundPage from './containers/NotFoundPage';
 
 export default (/* store */) => (
   <Route path="/" component={App}>
-    <IndexRoute component={Home} />
-    <Route path="contact" component={Contact} />
-    <Route path="*" component={NotFound} />
+    <IndexRoute component={HomePage} />
+    <Route path="contact" component={ContactPage} />
+    <Route path="*" component={NotFoundPage} />
   </Route>
 );
