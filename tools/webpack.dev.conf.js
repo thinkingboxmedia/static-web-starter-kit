@@ -42,4 +42,7 @@ module.exports = merge(baseConfig, {
       GoogleAnalytics: 'UA-XXXXXX',
     }),
   ],
+  eslint: {
+    emitWarning: true,
+  },
 })
