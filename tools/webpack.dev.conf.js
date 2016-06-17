@@ -1,13 +1,13 @@
 
-var webpack = require('webpack')
-var merge = require('webpack-merge')
-var baseConfig = require('./webpack.base.conf')
-var HtmlWebpackPlugin = require('html-webpack-plugin')
+const webpack = require('webpack');
+const merge = require('webpack-merge');
+const baseConfig = require('./webpack.base.conf');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // add hot-reload related code to entry chunks
-Object.keys(baseConfig.entry).forEach(function (name) {
-  baseConfig.entry[name] = ['./tools/dev-client'].concat(baseConfig.entry[name])
-})
+Object.keys(baseConfig.entry).forEach(name => {
+  baseConfig.entry[name] = ['./tools/dev-client'].concat(baseConfig.entry[name]);
+});
 
 module.exports = merge(baseConfig, {
   // eval-source-map is faster for development
@@ -24,7 +24,7 @@ module.exports = merge(baseConfig, {
         loaders: [
           'style-loader',
           'css-loader?modules&localIdentName=[local]_[hash:base64:3]',
-          'postcss-loader'
+          'postcss-loader',
         ],
       },
     ],
