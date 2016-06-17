@@ -8,7 +8,7 @@ A front-end template that helps you build fast, modern mobile web apps. (IE9+) @
 
 ## Installation
  
-[NodeJS](http://nodejs.org) - use the installer (> v0.12.2).
+[NodeJS](http://nodejs.org) - use the installer (>=5.0.0).
 
 ## Getting Started
 

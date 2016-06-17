@@ -3,6 +3,8 @@ import React, { Component, PropTypes } from 'react';
 import Header from '../../components/Header';
 import Preloader from '../../components/Preloader';
 
+import UserLoginButton from '../../containers/User/LoginButton';
+
 import styles from './App.css';
 
 /**
@@ -48,7 +50,9 @@ export default class App extends Component {
   renderContent() {
     return (
       <div>
-        <Header />
+        <Header>
+          <UserLoginButton />
+        </Header>
         <div>
           {this.props.children}
         </div>
