@@ -8,16 +8,16 @@ const PROP_TYPES = {
   store: PropTypes.object.isRequired,
 };
 
-export default function Root(props) {
-  return (
-    <Provider store={props.store} key="provider">
-      <div>
-        <Router history={props.history}>
-          {props.routes}
-        </Router>
-      </div>
-    </Provider>
-  );
-}
+const Root = ({ store, history, routes }) => (
+  <Provider store={store} key="provider">
+    <div>
+      <Router history={history}>
+        {routes}
+      </Router>
+    </div>
+  </Provider>
+);
 
 Root.propTypes = PROP_TYPES;
+
+export default Root;
