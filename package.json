@@ -1,6 +1,6 @@
 {
   "name": "react-boilerplate",
-  "version": "1.0.0-beta.5",
+  "version": "1.0.0-beta.6",
   "description": "A front-end template that helps you build fast, modern mobile web apps.",
   "main": "src/main.js",
   "scripts": {
@@ -55,7 +55,7 @@
     "eslint-plugin-react": "^5.1.1",
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.13.4",
-    "extract-text-webpack-plugin": "^1.0.1",
+    "extract-text-webpack-plugin": "^2.0.0-beta.2",
     "fs": "0.0.2",
     "history": "^2.1.2",
     "html-webpack-plugin": "^2.21.0",
@@ -79,11 +79,15 @@
     "redux-thunk": "^2.1.0",
     "shelljs": "^0.7.0",
     "style-loader": "^0.13.1",
-    "webpack": "^2.1.0-beta.13",
+    "webpack": "^2.1.0-beta.18",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.10.0",
     "webpack-merge": "^0.14.0",
     "whatwg-fetch": "^1.0.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "es6-promise": "^3.2.1",
+    "exports-loader": "^0.6.3",
+    "imports-loader": "^0.6.5"
+  }
 }

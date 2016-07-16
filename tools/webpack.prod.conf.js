@@ -20,10 +20,10 @@ module.exports = merge(baseConfig, {
   },
   module: {
     loaders: [
-      {
-        test: /\.css$/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[local]_[hash:base64:3]&minimize!postcss-loader')
-      },
+      { test: /\.css$/, loader: ExtractTextPlugin.extract({
+          notExtractLoader: "style-loader",
+          loader: "css-loader"
+      }) },
     ],
   },
   plugins: [
@@ -47,11 +47,9 @@ module.exports = merge(baseConfig, {
     }),
 
     new webpack.optimize.OccurrenceOrderPlugin(),
-    
+
     // extract css into its own file
-    new ExtractTextPlugin('[name].[contenthash].css', {
-      allChunks: true,
-    }),
+    new ExtractTextPlugin('[name].[contenthash].css'),
 
     new webpack.ProvidePlugin({
       'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch',

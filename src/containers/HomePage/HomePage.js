@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 
+import request from '../../utils/request';
+
 import styles from './HomePage.css';
 
 /**
@@ -13,6 +15,22 @@ export default class HomePage extends Component {
     this.state = {
       items: ['HTML5 Boilerplate', 'React.js', '... & more'],
     };
+  }
+
+  /**
+   * componentDidMount
+   */
+  componentDidMount() {
+    const result = request('https://api.github.com');
+    result.then((response) => {
+      window.console.log('response', response);
+      window.console.log('header', response.headers.get('Content-Type'));
+      return response.text();
+    }).then((text) => {
+      window.console.log('got text', text);
+    }).catch((ex) => {
+      window.console.log('failed', ex);
+    });
   }
 
   /**
