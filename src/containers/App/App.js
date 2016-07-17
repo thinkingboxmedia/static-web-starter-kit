@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import Transition from 'react-transition-group-plus';
 
 import Header from '../../components/Header';
 import Preloader from '../../components/Preloader';
@@ -50,9 +51,11 @@ export default class App extends Component {
   renderContent() {
     return (
       <div>
-        <Header>
-          <UserLoginButton />
-        </Header>
+        <Transition component="div" transitionMode="in-out">
+          <Header>
+            <UserLoginButton />
+          </Header>
+        </Transition>
         <div>
           {this.props.children}
         </div>
@@ -72,10 +75,10 @@ export default class App extends Component {
     let content = (this.state.isPreloaderLoaded) ? this.renderContent() : '';
 
     return (
-      <div className={styles.App}>
+      <Transition component="div" transitionMode="in-out" className={styles.App}>
         {preloader}
         {content}
-      </div>
+      </Transition>
     );
   }
 }

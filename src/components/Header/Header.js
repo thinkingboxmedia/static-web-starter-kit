@@ -27,12 +27,15 @@ export default class Header extends Component {
   }
 
   /**
-   * componentDidMount
+   * componentWillAppear
    */
-  componentDidMount() {
-    window.setTimeout(() => {
-      this.setState({ go: IDLE });
-    }, 0);
+  componentWillAppear(callback) {
+    this.setState({
+      go: IDLE,
+      done: () => {
+        callback();
+      },
+    });
   }
 
   /**
