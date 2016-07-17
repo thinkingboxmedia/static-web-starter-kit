@@ -7,7 +7,7 @@ export default function transitions() {
     {
       from: IDLE, to: SHOW, bi: true, animation: {
         duration: 1,
-        delay: 1.2,
+        delay: 2,
         ease: eases.expoOut,
       },
     },

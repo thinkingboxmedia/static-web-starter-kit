@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import ReactF1 from 'react-f1';
 import Resize from 'brindille-resize';
-import Loader from 'preloader';
+
+import preloader from 'preloader';
 
 import { states, IDLE, SHOW, HIDE } from './PreloaderF1States';
 import transitions from './PreloaderF1Transitions';
@@ -28,22 +29,15 @@ export default class Preloader extends Component {
       height: 0,
     };
 
-    this.loader = new Loader();
-
-    this.loaderProgressHandler = this.loaderProgressHandler.bind(this);
-    this.loaderCompleteHandler = this.loaderCompleteHandler.bind(this);
-    this.resizeHandler = this.resizeHandler.bind(this);
     this.completeF1Handler = this.completeF1Handler.bind(this);
+    this.resizeHandler = this.resizeHandler.bind(this);
   }
 
   /**
    * componentDidMount
    */
   componentDidMount() {
-    window.setTimeout(() => {
-      this.setState({ go: IDLE });
-    }, 0);
-
+    this.load();
     Resize.addListener(this.resizeHandler);
   }
 
@@ -52,6 +46,19 @@ export default class Preloader extends Component {
    */
   componentWillUnmount() {
     Resize.removeListener(this.resizeHandler);
+    this.loader = null;
+  }
+
+  /**
+   * componentWillAppear
+   */
+  componentWillAppear(callback) {
+    this.setState({
+      go: IDLE,
+      done: () => {
+        callback();
+      },
+    });
   }
 
   /**
@@ -75,7 +82,6 @@ export default class Preloader extends Component {
    * loaderCompleteHandler
    */
   loaderCompleteHandler() {
-    this.loader.onProgress.remove(this.loaderProgressHandler);
     this.props.onLoaded();
     this.hide();
   }
@@ -84,31 +90,13 @@ export default class Preloader extends Component {
    * load
    */
   load() {
-    this.loader.onProgress.add(this.loaderProgressHandler);
-    this.loader.onComplete.addOnce(this.loaderCompleteHandler);
+    this.loader = preloader({ xhrImages: false });
+    this.loader.on('progress', this.loaderProgressHandler.bind(this));
+    this.loader.on('complete', this.loaderCompleteHandler.bind(this));
 
-    this.loader.add('/assets/images/yeoman.png');
+    this.loader.addImage('assets/images/yeoman.png');
 
     this.loader.load();
-  }
-
-  /**
-   * completeAnimationHandler
-   */
-  completeF1Handler() {
-    switch (this.state.go) {
-
-      case IDLE:
-        this.load();
-        break;
-
-      case HIDE:
-        this.props.onHidden();
-        break;
-
-      default:
-        window.console.log('Preloader::completeF1Handler:', this.state.go);
-    }
   }
 
   /**
@@ -116,6 +104,15 @@ export default class Preloader extends Component {
    */
   hide() {
     this.setState({ go: HIDE });
+  }
+
+  /**
+   * completeAnimationHandler
+   */
+  completeF1Handler() {
+    if (this.state.go === HIDE) {
+      this.props.onHidden();
+    }
   }
 
   /**
