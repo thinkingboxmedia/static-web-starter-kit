@@ -1,7 +1,7 @@
 import { applyMiddleware, createStore, compose } from 'redux';
+import { routerMiddleware } from 'react-router-redux';
 import thunk from 'redux-thunk';
 import reducers from './reducers';
-import { routerMiddleware } from 'react-router-redux';
 
 export default function configure(initialState = {}, history) {
   const enhancer = compose(
@@ -16,7 +16,7 @@ export default function configure(initialState = {}, history) {
 
   if (module.hot) {
     module.hot.accept('./reducers', () => {
-      store.replaceReducer(reducers.default);
+      store.replaceReducer(reducers);
     });
   }
   return store;

@@ -1,6 +1,22 @@
 {
-  "extends": "airbnb",
   "parser": "babel-eslint",
+  "ecmaFeatures": {
+    "classes": true,
+    "jsx": true
+  },
+  "extends": [
+    "airbnb",
+    "plugin:import/errors",
+    "plugin:import/warnings"
+  ],
+  "plugins": [
+    "react"
+  ],
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
   "parserOptions": {
     "ecmaVersion": 7,
     "sourceType": 'module',
@@ -8,5 +24,8 @@
       "jsx": true,
       "experimentalObjectRestSpread": true
     }
+  },
+  rules: {
+    'react/jsx-filename-extension': [1, { extensions: ['.jsx', '.js'] }]
   }
 }

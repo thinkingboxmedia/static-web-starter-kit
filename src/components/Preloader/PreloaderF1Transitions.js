@@ -5,7 +5,10 @@ import { IDLE, SHOW, HIDE } from './PreloaderF1States';
 export default function transitions() {
   return [
     {
-      from: SHOW, to: IDLE, bi: true, animation: {
+      from: SHOW,
+      to: IDLE,
+      bi: true,
+      animation: {
         duration: 1,
         ease: eases.expoOut,
         title: {
@@ -17,7 +20,10 @@ export default function transitions() {
       },
     },
     {
-      from: IDLE, to: HIDE, bi: true, animation: {
+      from: IDLE,
+      to: HIDE,
+      bi: true,
+      animation: {
         duration: 1,
         ease: eases.expoIn,
         container: {
