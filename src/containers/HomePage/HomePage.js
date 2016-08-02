@@ -23,11 +23,7 @@ export default class HomePage extends Component {
   componentDidMount() {
     const result = request('https://api.github.com');
     result.then((response) => {
-      window.console.log('response', response);
-      window.console.log('header', response.headers.get('Content-Type'));
-      return response.text();
-    }).then((text) => {
-      window.console.log('got text', text);
+      window.console.log('github data api example:', response);
     }).catch((ex) => {
       window.console.log('failed', ex);
     });
