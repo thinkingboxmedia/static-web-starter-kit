@@ -5,12 +5,10 @@
  */
 
 const fs = require('fs');
-const pageComponents = fs.readdirSync('src/components');
-const pageContainers = fs.readdirSync('src/containers');
-const components = pageComponents.concat(pageContainers);
+const components = fs.readdirSync('src/components');
 
-function componentExists(comp) {
-  return components.indexOf(comp) >= 0;
+function componentExists(component) {
+  return components.indexOf(component) >= 0;
 }
 
 module.exports = componentExists;
