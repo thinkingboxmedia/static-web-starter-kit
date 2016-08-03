@@ -10,8 +10,8 @@ export default class LoginButton extends Component {
   static get propTypes() {
     return {
       isLoggedIn: PropTypes.bool,
-      onLogIn: PropTypes.func.isRequired,
-      onLogOut: PropTypes.func.isRequired,
+      login: PropTypes.func.isRequired,
+      logout: PropTypes.func.isRequired,
     };
   }
 
@@ -28,9 +28,9 @@ export default class LoginButton extends Component {
 
   clickHandler() {
     if (this.props.isLoggedIn) {
-      this.props.onLogOut();
+      this.props.logout();
     } else {
-      this.props.onLogIn();
+      this.props.login();
     }
   }
 
@@ -39,7 +39,7 @@ export default class LoginButton extends Component {
    * @return {ReactElement} markup
    */
   render() {
-    const l = (this.props.isLoggedIn) ? 'LogOut' : 'LogIn';
+    const l = (this.props.isLoggedIn) ? 'Logout' : 'Login';
 
     return (
       <span className={styles.LoginButton}>

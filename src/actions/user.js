@@ -1,13 +1,13 @@
 import {
   LOGGED_IN,
   LOGGED_OUT,
-} from './userActionsType';
+} from './types';
 
 /**
  * logIn
  */
 
-export const logIn = () => ({
+export const login = () => ({
   type: LOGGED_IN,
 });
 
@@ -15,6 +15,6 @@ export const logIn = () => ({
  * logOut
  */
 
-export const logOut = () => ({
+export const logout = () => ({
   type: LOGGED_OUT,
 });

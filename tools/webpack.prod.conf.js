@@ -21,7 +21,7 @@ module.exports = merge(baseConfig, {
   module: {
     loaders: [
       { test: /\.css$/, loader: ExtractTextPlugin.extract({
-          notExtractLoader: "style-loader",
+          fallbackLoader: "style-loader",
           loader: 'css-loader?modules&importLoaders=1&localIdentName=[local]_[hash:base64:3]&minimize!postcss-loader',
       }) },
     ],

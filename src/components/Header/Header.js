@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import ReactF1 from 'react-f1';
 
-import UserLikeButton from '../User/LikeButton';
+import LikeButton from '../LikeButton';
 
 import { states, IDLE, SHOW } from './HeaderF1States';
 import transitions from './HeaderF1Transitions';
@@ -51,7 +51,7 @@ export default class Header extends Component {
         transitions={transitions()}
       >
         <div data-f1="container" className={styles.container}>
-          <UserLikeButton />
+          <LikeButton />
           <span className={styles.login}>
             {this.props.children}
           </span>
