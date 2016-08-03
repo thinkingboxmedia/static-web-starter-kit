@@ -4,7 +4,7 @@ import Transition from 'react-transition-group-plus';
 import Header from '../../components/Header';
 import Preloader from '../../components/Preloader';
 
-import UserLoginButton from '../../containers/User/LoginButton';
+import LoginButton from '../../components/LoginButton';
 
 import styles from './App.css';
 
@@ -53,7 +53,7 @@ export default class App extends Component {
       <div>
         <Transition component="div" transitionMode="in-out">
           <Header>
-            <UserLoginButton />
+            <LoginButton />
           </Header>
         </Transition>
         <div>

@@ -56,7 +56,14 @@ module.exports = {
         loader: 'json',
       },
       {
-        test: /\.(png|jpg|gif|svg|woff2?|eot|ttf)(\?.*)?$/,
+        test: /\.(jpg|png|gif|eot|svg|ttf|woff|woff2)(\?.*)?$/,
+        loader: 'url',
+        query: {
+          name: '[name].[ext]?[hash:7]',
+        },
+      },
+      {
+        test: /\.(mp4|webm)(\?.*)?$/,
         loader: 'url',
         query: {
           limit: 10000,

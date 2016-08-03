@@ -1,10 +1,10 @@
 import React from 'react';
 import { Route, IndexRoute } from 'react-router';
 
-import App from './containers/App';
-import HomePage from './containers/HomePage';
-import ContactPage from './containers/ContactPage';
-import NotFoundPage from './containers/NotFoundPage';
+import App from './routes/App';
+import HomePage from './routes/HomePage';
+import ContactPage from './routes/ContactPage';
+import NotFoundPage from './routes/NotFoundPage';
 
 export default (/* store */) => (
   <Route path="/" component={App}>

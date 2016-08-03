@@ -1,7 +1,7 @@
 import {
   LOGGED_IN,
   LOGGED_OUT,
-} from './userActionsType';
+} from '../actions/types';
 
 const initialState = {
   isLoggedIn: false,
