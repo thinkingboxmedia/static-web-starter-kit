@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import ReactF1 from 'react-f1';
-import Resize from 'brindille-resize';
 
 import preloader from 'preloader';
 
@@ -15,6 +14,8 @@ export default class Preloader extends Component {
 
   static get propTypes() {
     return {
+      stageWidth: PropTypes.number,
+      stageHeight: PropTypes.number,
       onLoaded: PropTypes.func,
       onHidden: PropTypes.func,
     };
@@ -30,7 +31,6 @@ export default class Preloader extends Component {
     };
 
     this.completeF1Handler = this.completeF1Handler.bind(this);
-    this.resizeHandler = this.resizeHandler.bind(this);
   }
 
   /**
@@ -38,14 +38,12 @@ export default class Preloader extends Component {
    */
   componentDidMount() {
     this.load();
-    Resize.addListener(this.resizeHandler);
   }
 
   /**
    * componentWillUnmount
    */
   componentWillUnmount() {
-    Resize.removeListener(this.resizeHandler);
     this.loader = null;
   }
 
@@ -58,16 +56,6 @@ export default class Preloader extends Component {
       done: () => {
         callback();
       },
-    });
-  }
-
-  /**
-   * resizeHandler
-   */
-  resizeHandler() {
-    this.setState({
-      width: Resize.width,
-      height: Resize.height,
     });
   }
 
@@ -120,7 +108,10 @@ export default class Preloader extends Component {
    * @return {ReactElement} markup
    */
   render() {
-    const styleContainer = { width: this.state.width, height: this.state.height };
+    const styleContainer = {
+      width: this.props.stageWidth,
+      height: this.props.stageHeight,
+    };
 
     return (
       <ReactF1
