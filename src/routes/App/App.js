@@ -16,8 +16,6 @@ export default class App extends Component {
 
   static get propTypes() {
     return {
-      stageWidth: PropTypes.number,
-      stageHeight: PropTypes.number,
       resize: PropTypes.func.isRequired,
       children: PropTypes.element,
     };

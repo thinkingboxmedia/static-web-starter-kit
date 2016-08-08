@@ -12,8 +12,8 @@ export default function browser(state = initialState, action) {
 
     case RESIZE_WINDOW:
       return {
-        stageWidth: action.stageWidth,
-        stageHeight: action.stageHeight,
+        stageWidth: action.payload.stageWidth,
+        stageHeight: action.payload.stageHeight,
       };
 
     default:

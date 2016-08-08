@@ -6,8 +6,12 @@ import {
  * resize
  */
 
-export const resize = (stageWidth, stageHeight) => ({
+const resize = (stageWidth, stageHeight) => ({
   type: RESIZE_WINDOW,
-  stageWidth,
-  stageHeight,
+  payload: {
+    stageWidth,
+    stageHeight,
+  },
 });
+
+export default resize;
