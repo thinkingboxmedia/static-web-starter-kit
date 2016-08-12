@@ -29,8 +29,6 @@ export default class Preloader extends Component {
       width: 0,
       height: 0,
     };
-
-    this.completeF1Handler = this.completeF1Handler.bind(this);
   }
 
   /**
@@ -79,8 +77,8 @@ export default class Preloader extends Component {
    */
   load() {
     this.loader = preloader({ xhrImages: false });
-    this.loader.on('progress', this.loaderProgressHandler.bind(this));
-    this.loader.on('complete', this.loaderCompleteHandler.bind(this));
+    this.loader.on('progress', () => this.loaderProgressHandler());
+    this.loader.on('complete', () => this.loaderCompleteHandler());
 
     this.loader.addImage('assets/images/yeoman.png');
 
@@ -119,7 +117,7 @@ export default class Preloader extends Component {
         go={this.state.go}
         states={states()}
         transitions={transitions()}
-        onComplete={this.completeF1Handler}
+        onComplete={() => this.completeF1Handler()}
       >
         <div className={styles.container} data-f1="container" style={styleContainer}>
           <section>

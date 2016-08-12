@@ -16,10 +16,6 @@ export default class LikeButton extends Component {
       go: IDLE,
       isSelected: false,
     };
-
-    this.clickHandler = this.clickHandler.bind(this);
-    this.mouseOverHandler = this.mouseOverHandler.bind(this);
-    this.mouseOutHandler = this.mouseOutHandler.bind(this);
   }
 
   /**
@@ -74,9 +70,9 @@ export default class LikeButton extends Component {
         <span
           data-f1="icon"
           className={styles.icon}
-          onClick={this.clickHandler}
-          onMouseOver={this.mouseOverHandler}
-          onMouseOut={this.mouseOutHandler}
+          onClick={() => this.clickHandler()}
+          onMouseOver={() => this.mouseOverHandler()}
+          onMouseOut={() => this.mouseOutHandler()}
         >
           ♡
         </span>

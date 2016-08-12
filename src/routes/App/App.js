@@ -26,10 +26,6 @@ export default class App extends Component {
       isPreloaderLoaded: false,
       isPreloaderHidden: false,
     };
-
-    this.preloaderLoadedHandler = this.preloaderLoadedHandler.bind(this);
-    this.preloaderHiddenHandler = this.preloaderHiddenHandler.bind(this);
-    this.resizeHandler = this.resizeHandler.bind(this);
   }
 
   /**
@@ -37,14 +33,14 @@ export default class App extends Component {
    */
   componentDidMount() {
     this.resizeHandler();
-    Resize.addListener(this.resizeHandler);
+    Resize.addListener(() => this.resizeHandler());
   }
 
   /**
    * componentWillUnmount
    */
   componentWillUnmount() {
-    Resize.removeListener(this.resizeHandler);
+    Resize.removeListener(() => this.resizeHandler());
   }
 
   /**
@@ -58,14 +54,18 @@ export default class App extends Component {
    * preloaderLoadedHandler
    */
   preloaderLoadedHandler() {
-    this.setState({ isPreloaderLoaded: true });
+    this.setState({
+      isPreloaderLoaded: true,
+    });
   }
 
   /**
    * preloaderHiddenHandler
    */
   preloaderHiddenHandler() {
-    this.setState({ isPreloaderHidden: true });
+    this.setState({
+      isPreloaderHidden: true,
+    });
   }
 
   /**
@@ -93,7 +93,10 @@ export default class App extends Component {
    */
   render() {
     const p = (
-      <Preloader onLoaded={this.preloaderLoadedHandler} onHidden={this.preloaderHiddenHandler} />
+      <Preloader
+        onLoaded={() => this.preloaderLoadedHandler()}
+        onHidden={() => this.preloaderHiddenHandler()}
+      />
     );
     let preloader = (this.state.isPreloaderHidden) ? '' : p;
     let content = (this.state.isPreloaderLoaded) ? this.renderContent() : '';
