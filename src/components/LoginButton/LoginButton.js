@@ -18,8 +18,6 @@ export default class LoginButton extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {};
-
-    this.clickHandler = this.clickHandler.bind(this);
   }
 
     /**
@@ -39,11 +37,11 @@ export default class LoginButton extends Component {
    * @return {ReactElement} markup
    */
   render() {
-    const l = (this.props.isLoggedIn) ? 'Logout' : 'Login';
+    const label = (this.props.isLoggedIn) ? 'Logout' : 'Login';
 
     return (
       <span className={styles.LoginButton}>
-        <a onClick={this.clickHandler}>{l}</a>
+        <a onClick={() => this.clickHandler()}>{label}</a>
       </span>
     );
   }
