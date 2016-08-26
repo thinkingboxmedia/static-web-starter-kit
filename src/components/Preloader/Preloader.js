@@ -106,16 +106,18 @@ export default class Preloader extends Component {
    * @return {ReactElement} markup
    */
   render() {
+    const { stageWidth, stageHeight } = this.props;
+
     const styleContainer = {
-      width: this.props.stageWidth,
-      height: this.props.stageHeight,
+      width: stageWidth,
+      height: stageHeight,
     };
 
     return (
       <ReactF1
         className={styles.Preloader}
         go={this.state.go}
-        states={states()}
+        states={states(stageHeight)}
         transitions={transitions()}
         onComplete={() => this.completeF1Handler()}
       >
