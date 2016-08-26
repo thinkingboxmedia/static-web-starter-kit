@@ -98,8 +98,8 @@ export default class App extends Component {
         onHidden={() => this.preloaderHiddenHandler()}
       />
     );
-    let preloader = (this.state.isPreloaderHidden) ? '' : p;
-    let content = (this.state.isPreloaderLoaded) ? this.renderContent() : '';
+    const preloader = (this.state.isPreloaderHidden) ? '' : p;
+    const content = (this.state.isPreloaderLoaded) ? this.renderContent() : '';
 
     return (
       <div className={styles.App}>
