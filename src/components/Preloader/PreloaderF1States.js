@@ -4,7 +4,7 @@ export const IDLE = 'idle';
 export const SHOW = 'show';
 export const HIDE = 'hide';
 
-export function states() {
+export function states(height) {
   /**
    * IDLE
    */
@@ -65,7 +65,7 @@ export function states() {
     {
       container: {
         style: {
-          translate: [0, -window.innerHeight, 0],
+          translate: [0, -height, 0],
         },
       },
       title: {
