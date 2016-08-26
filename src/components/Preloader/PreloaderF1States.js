@@ -1,7 +1,7 @@
 import merge from 'deep-extend';
 
 export const IDLE = 'idle';
-export const SHOW = 'show';
+export const OUT = 'out';
 export const HIDE = 'hide';
 
 export function states(height) {
@@ -32,7 +32,7 @@ export function states(height) {
    * SHOW
    */
 
-  const show = merge(
+  const out = merge(
     {},
     idle,
     {
@@ -87,7 +87,7 @@ export function states(height) {
 
   return {
     idle,
-    show,
+    out,
     hide,
   };
 }

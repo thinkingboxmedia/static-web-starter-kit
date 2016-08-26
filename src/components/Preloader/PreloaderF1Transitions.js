@@ -1,11 +1,11 @@
 import eases from 'eases';
 
-import { IDLE, SHOW, HIDE } from './PreloaderF1States';
+import { IDLE, OUT, HIDE } from './PreloaderF1States';
 
 export default function transitions() {
   return [
     {
-      from: SHOW,
+      from: OUT,
       to: IDLE,
       bi: true,
       animation: {

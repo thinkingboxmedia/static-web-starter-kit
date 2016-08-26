@@ -3,7 +3,7 @@ import ReactF1 from 'react-f1';
 
 import preloader from 'preloader';
 
-import { states, IDLE, SHOW, HIDE } from './PreloaderF1States';
+import { states, IDLE, OUT, HIDE } from './PreloaderF1States';
 import transitions from './PreloaderF1Transitions';
 import styles from './Preloader.css';
 
@@ -24,10 +24,8 @@ export default class Preloader extends Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      go: SHOW,
+      go: OUT,
       progress: 0,
-      width: 0,
-      height: 0,
     };
   }
 
@@ -35,7 +33,10 @@ export default class Preloader extends Component {
    * componentDidMount
    */
   componentDidMount() {
-    this.load();
+    window.setTimeout(() => {
+      this.setState({ go: IDLE });
+      this.load();
+    }, 0);
   }
 
   /**
@@ -43,18 +44,6 @@ export default class Preloader extends Component {
    */
   componentWillUnmount() {
     this.loader = null;
-  }
-
-  /**
-   * componentWillAppear
-   */
-  componentWillAppear(callback) {
-    this.setState({
-      go: IDLE,
-      done: () => {
-        callback();
-      },
-    });
   }
 
   /**
