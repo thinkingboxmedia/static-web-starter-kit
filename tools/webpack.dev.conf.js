@@ -40,6 +40,7 @@ module.exports = merge(baseConfig, {
       template: 'index.template.html',
       inject: true,
       GoogleAnalytics: 'UA-XXXXXX',
+      ENV: 'dev',
     }),
   ],
   eslint: {

@@ -2,11 +2,12 @@
 @import '../../styles/fonts.css';
 @import '../../styles/helpers.css';
 @import '../../styles/layout.css';
+@import '../../styles/animations.css';
 
 @import '../../styles/palette.css';
 
 html,
-body, 
+body,
 .App {
-  background-color: $palette-primary; 
+  background-color: $palette-primary;
 }
