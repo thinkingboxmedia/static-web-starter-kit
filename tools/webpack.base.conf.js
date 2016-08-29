@@ -4,16 +4,14 @@ var projectRoot = path.resolve(__dirname, '../')
 var precss       = require('precss');
 var autoprefixer = require('autoprefixer');
 
-const AUTOPREFIXER_BROWSERS = [
-  'Android 2.3',
-  'Android >= 4',
-  'Chrome >= 35',
-  'Firefox >= 31',
-  'Explorer >= 9',
-  'iOS >= 7',
-  'Opera >= 12',
-  'Safari >= 7.1',
-];
+const AUTOPREFIXER_BROWSERS = {
+  browsers: [
+    '>1%',
+    'last 4 versions',
+    'Firefox ESR',
+    'not ie < 9', // React doesn't support IE8 anyway
+  ],
+}
 
 module.exports = {
   entry: {
