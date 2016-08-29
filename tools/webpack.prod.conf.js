@@ -62,6 +62,7 @@ module.exports = merge(baseConfig, {
       template: 'index.template.html',
       inject: true,
       GoogleAnalytics: 'UA-XXXXXX',
+      ENV: 'production',
       minify: {
         removeComments: true,
         collapseWhitespace: true,
