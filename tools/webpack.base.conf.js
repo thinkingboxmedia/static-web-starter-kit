@@ -1,17 +1,6 @@
 
 var path = require('path')
 var projectRoot = path.resolve(__dirname, '../')
-var precss       = require('precss');
-var autoprefixer = require('autoprefixer');
-
-const AUTOPREFIXER_BROWSERS = {
-  browsers: [
-    '>1%',
-    'last 4 versions',
-    'Firefox ESR',
-    'not ie < 9', // React doesn't support IE8 anyway
-  ],
-}
 
 module.exports = {
   entry: {
@@ -23,6 +12,7 @@ module.exports = {
     publicPath: '/',
     filename: '[name].js',
   },
+  /**
   resolve: {
     extensions: ['', '.js'],
     fallback: [path.join(__dirname, '../node_modules')],
@@ -33,7 +23,9 @@ module.exports = {
   resolveLoader: {
     fallback: [path.join(__dirname, '../node_modules')],
   },
+   **/
   module: {
+    /**
     preLoaders: [
       {
         test: /\.js$/,
@@ -42,6 +34,7 @@ module.exports = {
         exclude: /node_modules/,
       },
     ],
+     **/
     loaders: [
       {
         test: /\.js$/,
@@ -70,10 +63,12 @@ module.exports = {
       },
     ],
   },
+  /**
   postcss: function () {
     return [precss, autoprefixer(AUTOPREFIXER_BROWSERS)];
   },
   eslint: {
     formatter: require('eslint-friendly-formatter'),
   },
+   **/
 }
