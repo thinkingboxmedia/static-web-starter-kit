@@ -6,6 +6,15 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var CompressionPlugin = require('compression-webpack-plugin');
 
+const AUTOPREFIXER_BROWSERS = {
+  browsers: [
+    '>1%',
+    'last 4 versions',
+    'Firefox ESR',
+    'not ie < 9', // React doesn't support IE8 anyway
+  ],
+}
+
 // whether to generate source map for production files.
 // disabling this can speed up the build.
 var SOURCE_MAP = false
@@ -69,6 +78,13 @@ module.exports = merge(baseConfig, {
         removeAttributeQuotes: true,
         // more options:
         // https://github.com/kangax/html-minifier#options-quick-reference
+      },
+    }),
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        postcss: function postcss() {
+          return [require('precss')(), require('autoprefixer')(AUTOPREFIXER_BROWSERS)];
+        },
       },
     }),
     new CompressionPlugin()
