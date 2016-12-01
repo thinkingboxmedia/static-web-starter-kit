@@ -61,7 +61,7 @@ module.exports = merge(baseConfig, {
     new ExtractTextPlugin('[name].[contenthash].css'),
 
     new webpack.ProvidePlugin({
-      'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch',
+      'fetch': 'imports-loader?this=>global!exports-loader?global.fetch!whatwg-fetch',
     }),
     // generate dist index.html with correct asset hash for caching.
     // you can customize output by editing /index.html
