@@ -1,5 +1,14 @@
 {
   "presets": ["react", "latest"],
+  "plugins": [
+    ["transform-object-rest-spread"],
+    ["module-resolver", {
+      "root": ["."],
+      "alias": {
+        "src": "./src"
+      }
+    }]
+  ],
 
   "env": {
     "development": {
