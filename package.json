@@ -1,6 +1,6 @@
 {
-  "name": "react-boilerplate",
-  "version": "1.0.0-beta.19",
+  "name": "static-web-starter-kit",
+  "version": "1.0.0-beta.20",
   "description": "A front-end template that helps you build fast, modern mobile web apps.",
   "main": "src/main.js",
   "scripts": {
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/thinkingboxmedia/React-boilerplate.git"
+    "url": "http://github.com/thinkingboxmedia/static-web-starter-kit.git"
   },
   "keywords": [
     "boilerplate",
@@ -20,9 +20,9 @@
   "author": "Thinkingbox",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/thinkingboxmedia/React-boilerplate/issues"
+    "url": "https://github.com/thinkingboxmedia/static-web-starter-kit/issues"
   },
-  "homepage": "https://github.com/thinkingboxmedia/React-boilerplate#readme",
+  "homepage": "https://github.com/thinkingboxmedia/static-web-starter-kit#readme",
   "engines": {
     "node": ">=5.0.0"
   },
