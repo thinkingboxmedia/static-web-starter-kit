@@ -1,6 +1,6 @@
 import {
   RESIZE_WINDOW,
-} from '../actions/types';
+} from 'src/actions/types';
 
 const initialState = {
   stageWidth: 0,

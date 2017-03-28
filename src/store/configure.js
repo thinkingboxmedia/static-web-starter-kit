@@ -1,8 +1,8 @@
-import configureDev from './configure.dev';
-import configureProd from './configure.prod';
+import development from './configure.development';
+import production from './configure.production';
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = configureProd;
+  module.exports = production;
 } else {
-  module.exports = configureDev;
+  module.exports = development;
 }

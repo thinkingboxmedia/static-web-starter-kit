@@ -1,13 +1,11 @@
 import { applyMiddleware, createStore, compose } from 'redux';
-import { routerMiddleware } from 'react-router-redux';
 import thunk from 'redux-thunk';
-import reducers from '../reducers';
+import reducers from 'src/reducers';
 
-export default function configure(initialState = {}, history) {
+export default function configure(initialState = {}) {
   const enhancer = compose(
     applyMiddleware(
       thunk,
-      routerMiddleware(history)
     ),
     window.devToolsExtension ? window.devToolsExtension() : f => f
   );
@@ -19,5 +17,6 @@ export default function configure(initialState = {}, history) {
       store.replaceReducer(reducers);
     });
   }
+  
   return store;
 }

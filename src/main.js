@@ -1,31 +1,22 @@
+import { render } from 'react-dom';
 import React from 'react';
-import ReactDOM from 'react-dom';
-import createBrowserHistory from 'history/lib/createBrowserHistory';
-import { useRouterHistory } from 'react-router';
-import { syncHistoryWithStore } from 'react-router-redux';
-import makeRoutes from './routes';
-import Root from './routes/App/Root';
-import configureStore from './store/configure';
-import { trackPage } from './api/analytics';
+import { Provider } from 'react-redux';
 
-require('./utils/device').detect(); // mobile / tablet / desktop?
+import createStore from './store/configure';
 
-// Configure history for react-router
-const browserHistory = useRouterHistory(createBrowserHistory)({
-  basename: '/',
-});
-const store = configureStore(window.__INITIAL_STATE__, browserHistory);  // eslint-disable-line
-const history = syncHistoryWithStore(browserHistory, store);
+import domready from 'domready';
 
-history.listen((location) => {
-  if (location) {
-    trackPage(location.pathname);
-  }
+let root;
+
+domready(() => {
+
+	require('./utils/device').detect(); // mobile / tablet / desktop?
+
+  let App = require('./sections/App').default;
+	root = render(<Provider store={createStore()}><App/></Provider>, document.getElementById('root'), root);
 });
 
-const routes = makeRoutes(store);
 
-ReactDOM.render(
-  <Root history={history} routes={routes} store={store} />,
-  document.getElementById('root')
-);
+if (module.hot) {
+  module.hot.accept('./sections/App', () => requestAnimationFrame(init))
+}
