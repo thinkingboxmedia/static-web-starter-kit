@@ -72,11 +72,9 @@ export default class App extends Component {
         />}
         
         {isPreloaderLoaded && <div>
-          <div>
-            <Header>
-              <LoginButton />
-            </Header>
-          </div>
+          <Header>
+            <LoginButton />
+          </Header>>
           <BrowserRouter>
             <div>
               <Route exact path="/" component={HomePage} />
