@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import request from 'src/utils/request';
+import { getStatus } from 'src/api/github';
 
 import styles from './HomePage.css';
 
@@ -20,13 +20,9 @@ export default class HomePage extends Component {
   /**
    * componentDidMount
    */
-  componentDidMount() {
-    const result = request('https://api.github.com');
-    result.then((response) => {
-      window.console.log('github data api example:', response);
-    }).catch((ex) => {
-      window.console.log('failed', ex);
-    });
+  async componentDidMount() {
+    const result = await getStatus();
+    console.log(result);
   }
 
   /**
