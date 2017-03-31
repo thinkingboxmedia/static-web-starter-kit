@@ -10,10 +10,18 @@ export default class LoginButton extends Component {
   static get propTypes() {
     return {
       isLoggedIn: PropTypes.bool,
-      login: PropTypes.func.isRequired,
-      logout: PropTypes.func.isRequired,
+      login: PropTypes.func.isRequired, // action user
+      logout: PropTypes.func.isRequired,  // action user
     };
   }
+
+  static get defaultProps() {
+		return {
+			isLoggedIn: false,
+			login: f => f,
+      logout: f => f,
+		};
+	}
 
   constructor(props, context) {
     super(props, context);

@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import ReactF1 from 'react-f1';
 
-import LikeButton from '../LikeButton';
+import LikeButton from 'src/components/LikeButton';
 
-import { states, IDLE, SHOW } from './HeaderF1States';
+import { states, IDLE, OUT } from './HeaderF1States';
 import transitions from './HeaderF1Transitions';
 import styles from './Header.css';
 
@@ -19,10 +19,16 @@ export default class Header extends Component {
     };
   }
 
+  static get defaultProps() {
+		return {
+			children: null,
+		};
+	}
+
   constructor(props, context) {
     super(props, context);
     this.state = {
-      go: SHOW,
+      go: OUT,
     };
   }
 
@@ -30,9 +36,7 @@ export default class Header extends Component {
    * componentDidMount
    */
   componentDidMount() {
-    window.setTimeout(() => {
-      this.setState({ go: IDLE });
-    }, 0);
+    this.setState({ go: IDLE });
   }
 
   /**
@@ -49,7 +53,7 @@ export default class Header extends Component {
       >
         <div data-f1="container" className={styles.container}>
           <LikeButton />
-          <span className={styles.login}>
+          <span className={styles.actions}>
             {this.props.children}
           </span>
         </div>

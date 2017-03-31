@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import request from '../../utils/request';
+import request from 'src/utils/request';
 
 import styles from './HomePage.css';
 

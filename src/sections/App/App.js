@@ -2,10 +2,10 @@ import React, { Component, PropTypes } from 'react';
 import debounce from 'lodash.debounce';
 import { BrowserRouter, Route } from 'react-router-dom';
 
-import Header from '../../components/Header';
-import Preloader from '../../components/Preloader';
+import Header from './elements/Header';
+import Preloader from './elements/Preloader';
 
-import LoginButton from '../../components/LoginButton';
+import LoginButton from 'src/components/LoginButton';
 
 import HomePage from 'src/sections/HomePage';
 import ContactPage from 'src/sections/ContactPage';
@@ -23,6 +23,13 @@ export default class App extends Component {
       children: PropTypes.element,
     };
   }
+
+  static get defaultProps() {
+		return {
+			windowResize: f => f,
+			children: null,
+		};
+	}
 
   constructor(props, context) {
     super(props, context);
@@ -74,7 +81,7 @@ export default class App extends Component {
         {isPreloaderLoaded && <div>
           <Header>
             <LoginButton />
-          </Header>>
+          </Header>
           <BrowserRouter>
             <div>
               <Route exact path="/" component={HomePage} />

@@ -14,12 +14,19 @@ export default class Preloader extends Component {
 
   static get propTypes() {
     return {
-      stageWidth: PropTypes.number,
-      stageHeight: PropTypes.number,
+      stageHeight: PropTypes.number, // reducer browser
       onLoaded: PropTypes.func,
       onHidden: PropTypes.func,
     };
   }
+
+   static get defaultProps() {
+		return {
+			stageHeight: 0,
+			onLoaded: f => f,
+      onHidden: f => f,
+		};
+	}
 
   constructor(props, context) {
     super(props, context);
@@ -33,10 +40,8 @@ export default class Preloader extends Component {
    * componentDidMount
    */
   componentDidMount() {
-    window.setTimeout(() => {
-      this.setState({ go: IDLE });
-      this.load();
-    }, 0);
+    this.setState({ go: IDLE });
+    this.load();
   }
 
   /**
@@ -95,24 +100,18 @@ export default class Preloader extends Component {
    * @return {ReactElement} markup
    */
   render() {
-    const { stageWidth, stageHeight } = this.props;
-
-    const styleContainer = {
-      width: stageWidth,
-      height: stageHeight,
-    };
 
     return (
       <ReactF1
         className={styles.Preloader}
         go={this.state.go}
-        states={states(stageHeight)}
+        states={states(this.props.stageHeight)}
         transitions={transitions()}
         onComplete={() => this.completeF1Handler()}
       >
-        <div className={styles.container} data-f1="container" style={styleContainer}>
+        <div className={styles.container} data-f1="container">
           <section>
-            <p data-f1="title">Loading...</p>
+            <p data-f1="title">Loading... {this.state.progress} / 100</p>
             <div data-f1="progressbar" className={styles.progressbar} />
           </section>
         </div>

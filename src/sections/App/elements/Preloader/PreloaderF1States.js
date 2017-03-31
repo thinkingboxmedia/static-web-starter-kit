@@ -5,6 +5,7 @@ export const OUT = 'out';
 export const HIDE = 'hide';
 
 export function states(height) {
+  
   /**
    * IDLE
    */
@@ -29,7 +30,7 @@ export function states(height) {
   };
 
   /**
-   * SHOW
+   * OUT
    */
 
   const out = merge(

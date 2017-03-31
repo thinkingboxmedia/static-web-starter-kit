@@ -1,7 +1,7 @@
 import merge from 'deep-extend';
 
 export const IDLE = 'idle';
-export const SHOW = 'show';
+export const OUT = 'out';
 
 export function states() {
   /**
@@ -17,10 +17,10 @@ export function states() {
   };
 
   /**
-   * SHOW
+   * OUT
    */
 
-  const show = merge(
+  const out = merge(
     {},
     idle,
     {
@@ -36,6 +36,6 @@ export function states() {
 
   return {
     idle,
-    show,
+    out,
   };
 }

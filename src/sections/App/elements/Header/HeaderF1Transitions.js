@@ -1,12 +1,12 @@
 import eases from 'eases';
 
-import { IDLE, SHOW } from './HeaderF1States';
+import { IDLE, OUT } from './HeaderF1States';
 
 export default function transitions() {
   return [
     {
       from: IDLE,
-      to: SHOW,
+      to: OUT,
       bi: true,
       animation: {
         duration: 1,

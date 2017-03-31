@@ -1,4 +1,4 @@
-@import '../../styles/palette.css';
+@import '../../../../styles/palette.css';
 
 .Header {
   width: 100%;  
@@ -10,7 +10,7 @@
     color: #000;
     background: url("/assets/images/yeoman.png") $palette-tertiary no-repeat 5px 5px;
   }
-  .login {
+  .actions {
     position: absolute;
     top: 2em;
     right: 1em;
