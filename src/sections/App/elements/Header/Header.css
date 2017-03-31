@@ -1,4 +1,4 @@
-@import '../../../../styles/palette.css';
+@import '../../../../styles/variables.css';
 
 .Header {
   width: 100%;  
@@ -8,7 +8,7 @@
     width: 100%;  
     text-align: center;
     color: #000;
-    background: url("/assets/images/yeoman.png") $palette-tertiary no-repeat 5px 5px;
+    background: url("/assets/images/yeoman.png") var(--palette-tertiary) no-repeat 5px 5px;
   }
   .actions {
     position: absolute;

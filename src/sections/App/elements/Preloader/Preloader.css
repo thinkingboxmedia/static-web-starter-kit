@@ -1,16 +1,16 @@
-@import '../../../../styles/palette.css';
+@import '../../../../styles/variables.css';
 
 .Preloader {
   position: absolute;
   z-index: 1000;
 
   .container {
-  	width: 100vh;
+  	width: 100vw;
   	height: 100vh;
   	margin: 0;
   	padding: 0;
   	text-align: center;
-  	background-color: $palette-tertiary;
+  	background-color: var(--palette-tertiary);
   }
 
   section {
@@ -27,6 +27,6 @@
   	display: inline-block;
   	width: 25%;
   	height: 1px;
-  	background-color: $palette-primary; 
+  	background-color:var(--palette-primary); 
   }
 }

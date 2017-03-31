@@ -24,7 +24,7 @@ domready(() => {
         <App/>
       </ConnectedRouter>
     </Provider>, 
-    document.getElementById('root'), root
+    document.getElementById('app'), root
   );
 });
 

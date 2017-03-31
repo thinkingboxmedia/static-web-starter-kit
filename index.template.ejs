@@ -49,19 +49,39 @@
 
     <meta name="theme-color" content="#3372DF">
 
-    <link href='https://fonts.googleapis.com/css?family=Arapey:400italic' rel='stylesheet' type='text/css'>
-
   </head>
   <body>
 
-
-    <section id="root">
+    <section id="app">
       <noscript>
         A front-end template that helps you build fast, modern mobile web apps.
       </noscript>
     </section>
 
+    <script type="text/javascript">
+      window.__ENV__ = '<%= htmlWebpackPlugin.options.ENV %>';
+    </script>
+
     <script>
+
+      /**
+      window.fbAsyncInit = function () {
+				FB.init({
+						appId: '<%= htmlWebpackPlugin.options.FBAppId %>',
+						xfbml: true,
+						version: 'v2.8'
+				});
+				FB.AppEvents.logPageView();
+			};
+			(function (d, s, id) {
+					var js, fjs = d.getElementsByTagName(s)[0];
+					if (d.getElementById(id)) { return; }
+					js = d.createElement(s); js.id = id;
+					js.src = "//connect.facebook.net/en_US/sdk.js";
+					fjs.parentNode.insertBefore(js, fjs);
+			} (document, 'script', 'facebook-jssdk'));
+      **/
+
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -76,10 +96,6 @@
       function trackPage(name) {
         ga('send', 'pageview', name);
       }
-    </script>
-
-    <script type="text/javascript">
-      window.__ENV__ = '<%= htmlWebpackPlugin.options.ENV %>';
     </script>
 
   </body>
