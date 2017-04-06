@@ -12,7 +12,7 @@ A front-end template that helps you build fast, modern mobile web apps. (IE9+) @
 
 ## Getting Started
 
-- Install: `yarn`
+- Install: `yarn` (https://yarnpkg.com/en/docs/install)
 - Run: `yarn run dev`
 
 ## Features
