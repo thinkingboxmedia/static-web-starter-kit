@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-// import debounce from 'lodash.debounce';
+import debounce from 'lodash.debounce';
 import { BrowserRouter, Route } from 'react-router-dom';
 
 import Header from './elements/Header';
@@ -38,11 +38,9 @@ export default class App extends Component {
       isPreloaderHidden: false,
     };
 
-    /** 
     window.addEventListener('resize',
       debounce(() => props.windowResize(window.innerWidth, window.innerHeight), 200)
     );
-    */
 
     props.windowResize(window.innerWidth, window.innerHeight);
   }

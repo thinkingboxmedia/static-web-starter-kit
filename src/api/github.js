@@ -7,7 +7,7 @@ export const getStatus = () => {
   return new Promise((resolve, reject) => {
     const result = request('https://api.github.com');
     result.then((response) => {
-      resolve(response);
+      resolve(response.data);
     }).catch((error) => {
       reject(error)
     });
