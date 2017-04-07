@@ -1,6 +1,7 @@
+__UI
 node_modules
-dist
+build
+.DS_Store
+.vscode
 .idea
-.sass-cache
-.tmp
-npm-debug.log
+*-debug.log

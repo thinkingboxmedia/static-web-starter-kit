@@ -1,16 +1,16 @@
-@import '../../styles/palette.css';
+@import '../../styles/variables.css';
 
 .LoginButton {
   padding: 1em;
-  color: $palette-secondary;
+  color: var(--palette-secondary);;
   text-transform: uppercase;
   font-size: 0.8em;
   text-decoration: none;
-  border: 1px solid $palette-primary;
+  border: 1px solid var(--palette-primary);;
   cursor: pointer;
 
   &:hover {
-  	background-color: $palette-primary;
-  	color: $palette-tertiary;
+  	background-color: var(--palette-primary);;
+  	color: var(--palette-tertiary);;
   }
 }

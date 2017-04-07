@@ -1,5 +1,23 @@
 {
-  "presets": ["react", "latest"],
+  "presets": [
+    "react", 
+    "latest",
+    ["env", {
+      "targets": {
+        "browsers": ["last 2 versions"]
+      }
+    }]
+  ],
+  "plugins": [
+    ["transform-object-rest-spread"],
+    ["transform-async-to-generator"],
+    ["module-resolver", {
+      "root": ["."],
+      "alias": {
+        "src": "./src"
+      }
+    }]
+  ],
 
   "env": {
     "development": {

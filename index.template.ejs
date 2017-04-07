@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+
+    <link rel="dns-prefetch" href="http://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="http://apis.google.com">
+    <link rel="dns-prefetch" href="http://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://platform.twitter.com">
+    <link rel="dns-prefetch" href="http://connect.facebook.net">
+
+    <meta name="description" content="...">
+
+    <!-- facebook  -->
+    <meta property="og:image" content=""/>
+    <meta property="og:title" content=""/>
+    <meta property="og:url" content=""/>
+    <meta property="og:site-name" content=""/>
+
+    <!-- twitter  -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="">
+    <meta name="twitter:creator" content="">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image:src" content="">
+
+    <title>...</title>
+
+    <!-- Add to homescreen -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Fallback to homescreen for Chrome <39 on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="...">
+    <link rel="icon" sizes="192x192" href="assets/images/touch/chrome-touch-icon-192x192.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="...">
+    <link rel="apple-touch-icon" href="assets/images/touch/apple-touch-icon.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="assets/images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <meta name="theme-color" content="#3372DF">
+
+  </head>
+  <body>
+
+    <section id="app">
+      <noscript>
+        A front-end template that helps you build fast, modern mobile web apps.
+      </noscript>
+    </section>
+
+    <script type="text/javascript">
+      window.__ENV__ = '<%= htmlWebpackPlugin.options.ENV %>';
+    </script>
+
+    <script>
+
+      /**
+      window.fbAsyncInit = function () {
+				FB.init({
+						appId: '<%= htmlWebpackPlugin.options.FBAppId %>',
+						xfbml: true,
+						version: 'v2.8'
+				});
+				FB.AppEvents.logPageView();
+			};
+			(function (d, s, id) {
+					var js, fjs = d.getElementsByTagName(s)[0];
+					if (d.getElementById(id)) { return; }
+					js = d.createElement(s); js.id = id;
+					js.src = "//connect.facebook.net/en_US/sdk.js";
+					fjs.parentNode.insertBefore(js, fjs);
+			} (document, 'script', 'facebook-jssdk'));
+      **/
+
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', '<%= htmlWebpackPlugin.options.GoogleAnalytics %>', 'auto');
+      ga('send', 'pageview');
+
+      function trackEvent(category, action) {
+        ga('send', 'event', category, action);
+      }
+
+      function trackPage(name) {
+        ga('send', 'pageview', name);
+      }
+    </script>
+
+  </body>
+</html>

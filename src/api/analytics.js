@@ -1,13 +1,13 @@
 /**
  * trackEvent
  */
-export function trackEvent(category, action) {
+export const trackEvent = (category, action) => {
   window.trackEvent(category, action);
 }
 
 /**
  * trackPage
  */
-export function trackPage(name) {
+export const trackPage = (name) => {
   window.trackPage(name);
 }

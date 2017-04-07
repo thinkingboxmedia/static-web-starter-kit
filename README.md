@@ -1,4 +1,4 @@
-React-boilerplate
+static-web-starter-kit
 ===============
 
 [![experimental](http://badges.github.io/stability-badges/dist/experimental.svg)](http://github.com/badges/stability-badges)
@@ -12,8 +12,8 @@ A front-end template that helps you build fast, modern mobile web apps. (IE9+) @
 
 ## Getting Started
 
-- Install: `npm install`
-- Run: `npm run dev`
+- Install: `yarn` (https://yarnpkg.com/en/docs/install)
+- Run: `yarn run dev`
 
 ## Features
 
@@ -28,15 +28,15 @@ A front-end template that helps you build fast, modern mobile web apps. (IE9+) @
 
 *(HTML/CSS/JS/Images/etc)*
 
-Third-party dependencies are managed with **npm**
+Third-party dependencies are managed with **Yarn**
 
 ```sh
-$ npm install --save awesome-module
+$ yarn add awesome-module -S
 ```
 
 ## Generator
 
-Generate new templated components with `npm run generate`
+Generate new templated components with `yarn run generate`
 
 ### Types
 
@@ -88,11 +88,11 @@ The following options are available on all generated components:
 ## Test
 
 ```sh
-$ npm run test
+$ yarn run test
 ```
 
 ## Build
 
 ```sh
-$ npm run build
+$ yarn run build
 ```

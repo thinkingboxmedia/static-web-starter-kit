@@ -3,15 +3,13 @@ import {
 } from './types';
 
 /**
- * resize
+ * windowResize
  */
 
-const resize = (stageWidth, stageHeight) => ({
+export const windowResize = (stageWidth, stageHeight) => ({
   type: RESIZE_WINDOW,
   payload: {
     stageWidth,
     stageHeight,
   },
 });
-
-export default resize;
