@@ -22,12 +22,10 @@ export default class ContactPage extends Component {
   render() {
     return (
       <section className={styles.contactPage}>
-        <div>
-          <h2> Contact section!</h2>
-          <aside className={styles.navigation}>
-            <Link to="/">← Back</Link>
-          </aside>
-        </div>
+        <h2> Contact section!</h2>
+        <aside className={styles.navigation}>
+          <Link to="/">← Back</Link>
+        </aside>
       </section>
     );
   }
