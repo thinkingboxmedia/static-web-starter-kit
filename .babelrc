@@ -16,7 +16,8 @@
       "alias": {
         "src": "./src"
       }
-    }]
+    }],
+    ["transform-class-properties"]
   ],
 
   "env": {
