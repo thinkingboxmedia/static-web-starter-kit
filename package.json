@@ -98,6 +98,7 @@
     "mkdirp": "^0.5.1",
     "ncp": "^2.0.0",
     "normalize.css": "^6.0.0",
+    "object-assign": "^4.1.1",
     "preloader": "^3.0.0",
     "promise": "^7.1.1",
     "react": "^15.3.2",

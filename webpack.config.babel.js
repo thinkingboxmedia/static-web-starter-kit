@@ -15,8 +15,8 @@ const CSS_MAPS = ENV!=='production';
 module.exports = {
 
 	entry: {
-    app: ['./src/index.js'],
-    vendors: ['./src/polyfills.js', 'whatwg-fetch', 'domready', 'ismobilejs', 'react', 'react-dom', 'react-redux', 'redux', 'react-router-dom', 'react-f1', 'react-router-redux', 'preloader'],
+    app: ['./src/polyfills.js', './src/index.js'],
+    vendors: ['domready', 'ismobilejs', 'react', 'react-dom', 'react-redux', 'redux', 'react-router-dom', 'react-f1', 'react-router-redux', 'preloader'],
   },
 
 	output: {
