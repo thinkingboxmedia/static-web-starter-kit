@@ -1,0 +1,40 @@
+/* =============================================================================
+   Screen size variables
+   ========================================================================== */
+
+:root {
+	--screen-xs:                        480px;
+	--screen-xs-min:                    var(--screen-xs);
+	--screen-sm:                        768px;
+	--screen-sm-min:                    var(--screen-sm);
+	--screen-md:                        992px;
+	--screen-md-min:                    var(--screen-md);
+	--screen-lg:                        1200px;
+	--screen-lg-min:                    var(--screen-lg);
+	--screen-xl:                        1600px;
+	--screen-xl-min:                    var(--screen-xl);
+	--screen-xs-max:                    calc(var(--screen-sm-min) - 1px);
+	--screen-sm-max:                    calc(var(--screen-md-min) - 1px);
+	--screen-md-max:                    calc(var(--screen-lg-min) - 1px);
+	--screen-lg-max:                    calc(var(--screen-xl-min) - 1px);
+}
+
+/* =============================================================================
+   Media queries for different screen sizes
+   ========================================================================== */
+
+@custom-media --screen-xs-max-media (max-width: 767px);
+
+@custom-media --screen-sm-min-media (min-width: 768px);
+@custom-media --screen-sm-media (min-width: 768px) and (max-width: 991px);
+@custom-media --screen-sm-max-media (max-width: 991px);
+
+@custom-media --screen-md-min-media (min-width: 992px);
+@custom-media --screen-md-media (min-width: 992px) and (max-width: 1199px);
+@custom-media --screen-md-max-media (max-width: 1199px);
+
+@custom-media --screen-lg-min-media (min-width: 1200px);
+@custom-media --screen-lg-media (min-width: 1200px) and (max-width: 1599px);
+@custom-media --screen-lg-max-media (max-width: 1599px);
+
+@custom-media --screen-xl-min-media (min-width: 1600px);
