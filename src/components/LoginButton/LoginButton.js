@@ -33,7 +33,7 @@ export default class LoginButton extends Component {
    * clickHandler
    */
 
-  clickHandler() {
+  clickHandler = () => {
     if (this.props.isLoggedIn) {
       this.props.logout();
     } else {
@@ -50,7 +50,7 @@ export default class LoginButton extends Component {
 
     return (
       <span className={styles.LoginButton}>
-        <a onClick={() => this.clickHandler()}>{label}</a>
+        <a onClick={ this.clickHandler }>{label}</a>
       </span>
     );
   }

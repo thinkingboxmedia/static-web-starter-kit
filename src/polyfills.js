@@ -6,4 +6,9 @@ if (typeof Promise === 'undefined') {
   require('promise/lib/rejection-tracking').enable();
   window.Promise = require('promise/lib/es6-extensions.js');
 }
+
+// Object.assign() is commonly used with React.
+// It will use the native implementation if it's present and isn't buggy.
+Object.assign = require('object-assign');
+
 /*eslint-enable */
