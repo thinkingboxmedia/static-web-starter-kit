@@ -9,6 +9,7 @@
     }]
   ],
   "plugins": [
+    ["transform-runtime"],
     ["transform-object-rest-spread"],
     ["transform-async-to-generator"],
     ["module-resolver", {

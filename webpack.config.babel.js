@@ -6,6 +6,8 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CompressionPlugin from 'compression-webpack-plugin';
 
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
 const pkg = require('./package.json');
 
 const ENV = process.env.NODE_ENV || 'development';
@@ -15,9 +17,10 @@ const CSS_MAPS = ENV!=='production';
 module.exports = {
 
 	entry: {
-    app: ['./src/polyfills.js', './src/index.js'],
+		polyfills: ['./src/polyfills.js'],
     vendors: ['domready', 'ismobilejs', 'react', 'react-dom', 'react-redux', 'redux', 'react-router-dom', 'react-f1', 'react-router-redux', 'preloader'],
-  },
+    app: ['./src/index.js']
+	},
 
 	output: {
 		path: path.resolve(__dirname, "build"),
@@ -89,6 +92,7 @@ module.exports = {
 			googleAnalyticsID: ENV==='production' ? 'UA-XXXXXXXX-X' : 'UA-XXXXXXXX-X',
 			FBAppId: ENV==='production' ? '' : '',
 			version: pkg.version,
+			chunksSortMode: 'dependency',
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -129,18 +133,29 @@ module.exports = {
 		// extract css into its own file
     new ExtractTextPlugin('[name].[contenthash].css'),
 
-    new webpack.optimize.UglifyJsPlugin({
-      beautify: false,
-      compress: {
-        warnings: false,
-        drop_console: true,
-        screw_ie8: true
-      }
-    }),
-
+    // This helps ensure the builds are consistent if source hasn't changed:
     new webpack.optimize.OccurrenceOrderPlugin(),
 
+		new webpack.LoaderOptionsPlugin({
+      minimize: true,
+			debug: false
+		}),
+
+    new webpack.optimize.UglifyJsPlugin({
+      beautify: false,
+			mangle: {
+					screw_ie8: true,
+					keep_fnames: true
+			},
+			compress: {
+					screw_ie8: true
+			},
+			comments: false
+    }),
+
 		new CompressionPlugin(),
+
+		//new BundleAnalyzerPlugin(),
 
 		/**
     new SWPrecache({

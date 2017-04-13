@@ -9,8 +9,6 @@ import createStore from './store/configure';
 
 import domready from 'domready';
 
-require('babel-polyfill');
-
 let root;
 
 domready(() => {
