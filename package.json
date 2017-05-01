@@ -1,6 +1,6 @@
 {
   "name": "static-web-starter-kit",
-  "version": "1.0.0-beta.20",
+  "version": "1.0.0-beta.21",
   "description": "A front-end template that helps you build fast, modern mobile web apps.",
   "main": "src/main.js",
   "scripts": {
