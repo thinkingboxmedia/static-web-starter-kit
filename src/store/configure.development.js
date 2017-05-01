@@ -18,7 +18,8 @@ export default function configure(initialState = {}, history = {}) {
 
   if (module.hot) {
     module.hot.accept('../reducers', () => {
-      store.replaceReducer(reducers);
+      const nextRootReducer = require('../reducers/index');
+      store.replaceReducer(nextRootReducer);
     });
   }
   

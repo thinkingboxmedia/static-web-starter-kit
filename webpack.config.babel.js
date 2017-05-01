@@ -17,9 +17,27 @@ const CSS_MAPS = ENV!=='production';
 module.exports = {
 
 	entry: {
-		polyfills: ['./src/polyfills.js'],
-    vendors: ['domready', 'ismobilejs', 'react', 'react-dom', 'react-redux', 'redux', 'react-router-dom', 'react-f1', 'react-router-redux', 'preloader'],
-    app: ['./src/index.js']
+		polyfills: [
+			'./src/polyfills.js'
+		],
+    vendors: [
+			'domready', 
+			'ismobilejs', 
+			'redux', 
+			'react', 
+			'react-dom', 
+			'react-redux', 
+			'react-router-dom', 
+			'react-router-redux',
+			'react-f1',  
+			'preloader'
+			],
+    app: [
+			'react-hot-loader/patch', // activate HMR for React
+			'webpack-dev-server/client?http://localhost:8080', 
+			'webpack/hot/only-dev-server',
+			'./src/index.js'
+		]
 	},
 
 	output: {
@@ -170,6 +188,8 @@ module.exports = {
 
 		new webpack.HotModuleReplacementPlugin(),
 
+		new webpack.NamedModulesPlugin(),
+
 	] : []),
 
 	devtool: ENV==='production' ? 'source-map' : 'cheap-module-eval-source-map',
@@ -180,6 +200,7 @@ module.exports = {
 		publicPath: '/',
 		contentBase: ['./src', './static'],
 		historyApiFallback: true,
+		hot: true,  // enable HMR on the server
 		//https: { 
 		//	key: fs.readFileSync('localhost.pem', 'utf8'), 
 		//	cert: fs.readFileSync('localhost.pem', 'utf8') 
