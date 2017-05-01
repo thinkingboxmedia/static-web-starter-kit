@@ -12,13 +12,16 @@
     ["transform-runtime"],
     ["transform-object-rest-spread"],
     ["transform-async-to-generator"],
+    ["transform-class-properties"],
+
+    ["react-hot-loader/babel"], // Enables React code to work with HMR.
+    
     ["module-resolver", {
       "root": ["."],
       "alias": {
         "src": "./src"
       }
-    }],
-    ["transform-class-properties"]
+    }]
   ],
 
   "env": {

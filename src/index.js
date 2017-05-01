@@ -1,29 +1,44 @@
-import { render } from 'react-dom';
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import { AppContainer } from 'react-hot-loader';
 
 import { ConnectedRouter } from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory'
 
 import createStore from './store/configure';
 
-import domready from 'domready';
+import App from './sections/App';
 
-let root;
+import domready from 'domready';
 
 domready(() => {
 
   const history = createHistory();
+  const store = createStore();
 
 	require('./utils/device').detect(); // mobile / tablet / desktop?
 
-  let App = require('./sections/App').default;
-	root = render(
-    <Provider store={createStore()}>
-      <ConnectedRouter history={ history }>
-        <App/>
-      </ConnectedRouter>
-    </Provider>, 
-    document.getElementById('app'), root
-  );
+  const render = (Component, reduxStore) => {
+    ReactDOM.render(
+      <AppContainer>
+        <Provider store={ reduxStore }>
+          <ConnectedRouter history={ history }>
+            <Component/>
+          </ConnectedRouter>
+        </Provider>
+      </AppContainer>,
+      document.getElementById('app')
+    );
+  };
+
+  render(App, store);
+
+  if(module.hot) {
+    module.hot.accept('./sections/App', () => {
+      const hotApp = require('./sections/App').default
+      render(hotApp, store)
+    });
+  }
+  
 });
