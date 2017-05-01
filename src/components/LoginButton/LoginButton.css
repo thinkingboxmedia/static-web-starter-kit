@@ -1,4 +1,5 @@
 @import '../../styles/variables.css';
+@import '../../styles/mediaqueries.css';
 
 .LoginButton {
   padding: 1em;
@@ -8,6 +9,16 @@
   text-decoration: none;
   border: 1px solid var(--palette-primary);;
   cursor: pointer;
+
+  @media (--screen-sm-max-media) {
+  	padding: 0.75em;
+  }
+  @media (--screen-md-media) {
+  	padding: 1em;
+  }
+  @media (--screen-lg-min-media) {
+  	padding: 1.25em;
+  }
 
   &:hover {
   	background-color: var(--palette-primary);;
