@@ -3,23 +3,15 @@
 .Preloader {
   position: absolute;
   z-index: 1000;
-
-  .container {
-  	width: 100vw;
-  	height: 100vh;
-  	margin: 0;
-  	padding: 0;
-  	text-align: center;
-  	background-color: var(--palette-tertiary);
-  }
-
-  section {
-  	position: relative;
-  	top: 200px;
-  }	
+	width: 100vw;
+	height: 100vh;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	background-color: var(--palette-tertiary);
 
   p {
-  	margin: 0;
+  	margin: 200px 0 0 0;
   	padding: 0;
   }
 

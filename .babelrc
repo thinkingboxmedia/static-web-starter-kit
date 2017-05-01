@@ -9,6 +9,7 @@
     }]
   ],
   "plugins": [
+    ["transform-runtime"],
     ["transform-object-rest-spread"],
     ["transform-async-to-generator"],
     ["module-resolver", {
@@ -16,12 +17,13 @@
       "alias": {
         "src": "./src"
       }
-    }]
+    }],
+    ["transform-class-properties"]
   ],
 
   "env": {
     "development": {
-      "presets": ["react-hmre"]
+      "presets": []
     },
     "production": {
       "presets": ["react-optimize"]

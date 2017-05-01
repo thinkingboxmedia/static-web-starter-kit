@@ -1,11 +1,9 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+
 /**
-*
-* Icon
-*
-*/
-
-import React, { PropTypes } from 'react';
-
+ * Icon component
+ */
 const Icon = ({ type, size, color }) => (
   <svg
     width={size}
