@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import ReactF1 from 'react-f1';
 
 import LikeButton from 'src/components/LikeButton';
@@ -47,16 +48,15 @@ export default class Header extends Component {
     return (
       <ReactF1
         className={styles.Header}
+        data-f1="container"
         go={this.state.go}
         states={states()}
         transitions={transitions()}
       >
-        <div data-f1="container" className={styles.container}>
-          <LikeButton />
-          <span className={styles.actions}>
-            {this.props.children}
-          </span>
-        </div>
+        <LikeButton />
+        <span className={styles.actions}>
+          {this.props.children}
+        </span>
       </ReactF1>
     );
   }

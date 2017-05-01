@@ -9,8 +9,6 @@ import createStore from './store/configure';
 
 import domready from 'domready';
 
-require('babel-polyfill');
-
 let root;
 
 domready(() => {
@@ -29,8 +27,3 @@ domready(() => {
     document.getElementById('app'), root
   );
 });
-
-
-if (module.hot) {
-  module.hot.accept('./sections/App', () => requestAnimationFrame(init))
-}

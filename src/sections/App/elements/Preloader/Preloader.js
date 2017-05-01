@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import ReactF1 from 'react-f1';
 
 import preloader from 'preloader';
@@ -14,7 +15,6 @@ export default class Preloader extends Component {
 
   static get propTypes() {
     return {
-      stageHeight: PropTypes.number, // reducer browser
       onLoaded: PropTypes.func,
       onHidden: PropTypes.func,
     };
@@ -100,21 +100,19 @@ export default class Preloader extends Component {
    * @return {ReactElement} markup
    */
   render() {
+    const { progress, go } = this.state;
 
     return (
       <ReactF1
         className={styles.Preloader}
-        go={this.state.go}
-        states={states(this.props.stageHeight)}
+        data-f1="container"
+        go={go}
+        states={states()}
         transitions={transitions()}
         onComplete={() => this.completeF1Handler()}
       >
-        <div className={styles.container} data-f1="container">
-          <section>
-            <p data-f1="title">Loading... {this.state.progress} / 100</p>
-            <div data-f1="progressbar" className={styles.progressbar} />
-          </section>
-        </div>
+        <p data-f1="title">Loading... {progress} / 100</p>
+        <span data-f1="progressbar" className={styles.progressbar} />
       </ReactF1>
     );
   }
