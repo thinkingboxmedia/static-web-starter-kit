@@ -35,8 +35,7 @@ module.exports = {
 			],
     app: [
 			'react-hot-loader/patch', // activate HMR for React
-			'webpack-dev-server/client?http://localhost:8080', 
-			'webpack/hot/only-dev-server',
+			'webpack-dev-server/client?http://localhost:8080',
 			'./src/index.js'
 		]
 	},
