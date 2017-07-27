@@ -17,10 +17,11 @@ const CSS_MAPS = ENV!=='production';
 module.exports = {
 
 	entry: {
-		polyfills: [
-			'./src/polyfills.js'
-		],
+		// polyfills: [
+		// 	'./src/polyfills.js'
+		// ],
     vendors: [
+    		'./src/polyfills.js',
 			'domready', 
 			'ismobilejs', 
 			'redux', 
