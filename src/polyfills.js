@@ -1,5 +1,6 @@
 /*eslint-disable */
 
+require('babel-polyfill');
 require('es6-promise/auto');
 
 // fetch() polyfill for making API calls.
