@@ -1,119 +1,103 @@
+// Modules.
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import ReactF1 from 'react-f1';
-
 import preloader from 'preloader';
+import * as animate from 'gsap-promise';
 
-import { states, IDLE, OUT, HIDE } from './PreloaderF1States';
-import transitions from './PreloaderF1Transitions';
+// Components.
+import BaseComponent from 'src/components/BaseComponent';
+
+// Styles.
 import styles from './Preloader.css';
 
-/**
- * Preloader component
- */
-export default class Preloader extends Component {
+export default class Preloader extends BaseComponent {
 
-  static get propTypes() {
-    return {
-      onLoaded: PropTypes.func,
-      onHidden: PropTypes.func,
-    };
-  }
-
-   static get defaultProps() {
+	static get propTypes() {
 		return {
-			stageHeight: 0,
-			onLoaded: f => f,
-      onHidden: f => f,
+			onLoaded: PropTypes.func,
+			onHidden: PropTypes.func,
 		};
 	}
 
-  constructor(props, context) {
-    super(props, context);
-    this.state = {
-      go: OUT,
-      progress: 0,
-    };
-  }
+	 static get defaultProps() {
+		return {
+			stageHeight: 0,
+			onLoaded: f => f,
+			onHidden: f => f,
+		};
+	}
 
-  /**
-   * componentDidMount
-   */
-  componentDidMount() {
-    this.setState({ go: IDLE });
-    this.load();
-  }
+	constructor(props, context) {
 
-  /**
-   * componentWillUnmount
-   */
-  componentWillUnmount() {
-    this.loader = null;
-  }
+		super(props, context);
+		
+		this.state = {
+			progress: 0,
+		};
 
-  /**
-   * loaderProgressHandler
-   */
-  loaderProgressHandler(progress) {
-    this.setState({ progress });
-  }
+	}
 
-  /**
-   * loaderCompleteHandler
-   */
-  loaderCompleteHandler() {
-    this.props.onLoaded();
-    this.hide();
-  }
+	componentDidMount() {
+		this.animateIn({
+			delay: 1,
+			ease: Power3.easeOut,
+		}).then(() => this.load());
+	}
 
-  /**
-   * load
-   */
-  load() {
-    this.loader = preloader({ xhrImages: false });
-    this.loader.on('progress', () => this.loaderProgressHandler());
-    this.loader.on('complete', () => this.loaderCompleteHandler());
+	animateIn(opt = {}) {
+		return Promise.all([
+			animate.fromTo(this.$node, 1, {
+				y: '100%',
+			}, {
+				y: '0%',
+				...opt,
+			}),
+		]);
+	}
 
-    this.loader.addImage('assets/images/yeoman.png');
+	animateOut(opt = {}) {
+		return Promise.all([
+		animate.to(this.$node, 1, {
+			y: '-100%',
+			...opt,
+		}),
+		]);
+	}
 
-    this.loader.load();
-  }
+	componentWillUnmount() {
+		this.loader = null;
+	}
 
-  /**
-   * hide
-   */
-  hide() {
-    this.setState({ go: HIDE });
-  }
+	loaderProgressHandler(progress) {
+		const nextProgress = Math.max(progress, this.state.progress);
+		this.setState({ progress: nextProgress });
+	}
 
-  /**
-   * completeAnimationHandler
-   */
-  completeF1Handler() {
-    if (this.state.go === HIDE) {
-      this.props.onHidden();
-    }
-  }
+	loaderCompleteHandler() {
+		this.setState({ progress: 1 });
+		this.props.onLoaded();
+		this.animateOut().then(this.props.onHidden);
+	}
 
-  /**
-   * render
-   * @return {ReactElement} markup
-   */
-  render() {
-    const { progress, go } = this.state;
+	load() {
 
-    return (
-      <ReactF1
-        className={styles.Preloader}
-        data-f1="container"
-        go={go}
-        states={states()}
-        transitions={transitions()}
-        onComplete={() => this.completeF1Handler()}
-      >
-        <p data-f1="title">Loading... {progress} / 100</p>
-        <span data-f1="progressbar" className={styles.progressbar} />
-      </ReactF1>
-    );
-  }
+		this.loader = preloader({ xhrImages: false });
+
+		this.loader.on('progress', progress => this.loaderProgressHandler(progress));
+		this.loader.on('complete', () => this.loaderCompleteHandler());
+
+		this.loader.addImage('assets/images/c3p0.png');
+
+		this.loader.load();
+	
+	}
+
+	render() {
+		return (
+			<div className={ styles.Preloader } ref={ el => this.$node = el }>
+				<p>Loading...</p>
+			</div>
+		);
+	}
+
 }

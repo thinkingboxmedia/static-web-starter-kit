@@ -1,97 +1,123 @@
+// Modules.
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import debounce from 'lodash.debounce';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, matchPath } from 'react-router-dom';
+import TransitionGroup from 'react-transition-group/TransitionGroup';
 
-import Header from './elements/Header';
+// Elements.
 import Preloader from './elements/Preloader';
 
-import LoginButton from 'src/components/LoginButton';
-
-import HomePage from 'src/sections/HomePage';
-import ContactPage from 'src/sections/ContactPage';
-
+// Styles.
 import styles from './App.css';
 
-/**
- * App component
- */
+// Routes.
+import { Routes } from './Routes';
+
 export default class App extends Component {
 
-  static get propTypes() {
-    return {
-      windowResize: PropTypes.func.isRequired, // browser action
-      children: PropTypes.element,
-    };
-  }
+	static get propTypes() {
+		return {
+			windowResize: PropTypes.func.isRequired, // browser action
+			children: PropTypes.element,
+		};
+	}
 
-  static get defaultProps() {
+	static get defaultProps() {
 		return {
 			windowResize: f => f,
 			children: null,
 		};
 	}
 
-  constructor(props, context) {
-    super(props, context);
-    this.state = {
-      isPreloaderLoaded: false,
-      isPreloaderHidden: false,
-    };
+	constructor(props, context) {
 
-    window.addEventListener('resize',
-      debounce(() => props.windowResize(window.innerWidth, window.innerHeight), 200)
-    );
+		super(props, context);
+		
+		this.state = {
+			isPreloaderLoaded: false,
+			isPreloaderHidden: false,
+			matchedRoutes: [],
+		};
 
-    props.windowResize(window.innerWidth, window.innerHeight);
-  }
+		window.addEventListener('resize',
+			debounce(() => props.windowResize(window.innerWidth, window.innerHeight), 200)
+		);
 
-  /**
-   * preloaderLoadedHandler
-   */
-  preloaderLoadedHandler() {
-    this.setState({
-      isPreloaderLoaded: true,
-    });
-  }
+		props.windowResize(window.innerWidth, window.innerHeight);
+	
+	}
 
-  /**
-   * preloaderHiddenHandler
-   */
-  preloaderHiddenHandler() {
-    this.setState({
-      isPreloaderHidden: true,
-    });
-  }
+	componentWillMount() {
+		this.props.location && this.matchRoutes(this.props.location);
+	}
 
-  /**
-   * render
-   * @return {ReactElement} markup
-   */
-  render() {
+	componentWillReceiveProps(nextProps) {
+		nextProps.location && this.matchRoutes(nextProps.location);
+	}
 
-    const { isPreloaderHidden, isPreloaderLoaded } = this.state;
+	matchRoutes = ({ pathname }) => {
+	
+		const matchedRoutes = [];
 
-    return (
-      <div className={styles.App}>
-        {!isPreloaderHidden && <Preloader
-          onLoaded={() => this.preloaderLoadedHandler()}
-          onHidden={() => this.preloaderHiddenHandler()}
-        />}
-        
-        {isPreloaderLoaded && <div>
-          <Header>
-            <LoginButton />
-          </Header>
-          <BrowserRouter>
-            <div>
-              <Route exact path="/" component={HomePage} />
-              <Route path="/contact" component={ContactPage} />
-            </div>
-          </BrowserRouter>
-        </div>}
+		for (let i = 0; i < Routes.length; i++) {
 
-      </div>
-    );
-  }
+			const { component: RouteComponent, ...rest } = Routes[i];
+			const match = matchPath(pathname, { ...rest });
+
+			if (match) {
+
+				matchedRoutes.push(
+					<RouteComponent key={ RouteComponent } { ...match } />,
+				);
+
+				if (match.isExact || match.isStrict)
+					break;
+
+			}
+
+		}
+
+		this.setState({ matchedRoutes });
+
+	};
+
+	preloaderLoadedHandler() {
+		this.setState({
+			isPreloaderLoaded: true,
+		});
+	}
+
+	preloaderHiddenHandler() {
+		this.setState({
+			isPreloaderHidden: true,
+		});
+	}
+
+	render() {
+
+		const { isPreloaderHidden, isPreloaderLoaded } = this.state;
+
+		return (
+			<div className={styles.App}>
+				{
+					!isPreloaderHidden &&
+					<Preloader
+						onLoaded={ () => this.preloaderLoadedHandler() }
+						onHidden={ () => this.preloaderHiddenHandler() }
+					/>
+				}
+				{
+					isPreloaderLoaded &&
+					<div className={ styles.wrapper }>
+						<TransitionGroup>
+							{ this.state.matchedRoutes }
+						</TransitionGroup>
+					</div>
+				}
+			</div>
+		);
+
+	}
+	
 }

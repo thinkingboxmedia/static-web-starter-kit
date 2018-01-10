@@ -30,7 +30,6 @@ module.exports = {
 			'react-redux', 
 			'react-router-dom', 
 			'react-router-redux',
-			'react-f1',  
 			'preloader'
 			],
     app: [
@@ -200,6 +199,7 @@ module.exports = {
 		publicPath: '/',
 		contentBase: ['./src', './static'],
 		historyApiFallback: true,
+		disableHostCheck: true,
 		hot: true,  // enable HMR on the server
 		//https: { 
 		//	key: fs.readFileSync('localhost.pem', 'utf8'), 

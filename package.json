@@ -85,6 +85,7 @@
     "webpack-merge": "^4.1.0"
   },
   "dependencies": {
+    "classnames": "^2.2.5",
     "deep-extend": "^0.4.1",
     "domready": "^1.0.8",
     "eases": "^1.0.8",
@@ -92,6 +93,7 @@
     "eventsource-polyfill": "^0.9.6",
     "glslify": "^6.0.2",
     "glslify-loader": "^1.0.2",
+    "gsap-promise": "^2.0.0",
     "history": "^4.6.1",
     "ismobilejs": "^0.4.0",
     "lodash.debounce": "^4.0.8",
@@ -102,8 +104,8 @@
     "promise": "^7.1.1",
     "prop-types": "^15.5.8",
     "react": "^15.5.4",
+    "react-addons-transition-group": "^15.6.2",
     "react-dom": "^15.5.4",
-    "react-f1": "^8.0.1",
     "react-hot-loader": "3.0.0-beta.6",
     "react-redux": "^5.0.4",
     "react-router": "^4.1.1",

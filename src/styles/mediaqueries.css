@@ -5,7 +5,7 @@
 :root {
 	--screen-xs:                        480px;
 	--screen-xs-min:                    var(--screen-xs);
-	--screen-sm:                        768px;
+	--screen-sm:                        769px;
 	--screen-sm-min:                    var(--screen-sm);
 	--screen-md:                        992px;
 	--screen-md-min:                    var(--screen-md);
@@ -23,10 +23,10 @@
    Media queries for different screen sizes
    ========================================================================== */
 
-@custom-media --screen-xs-max-media (max-width: 767px);
+@custom-media --screen-xs-max-media (max-width: 768px);
 
-@custom-media --screen-sm-min-media (min-width: 768px);
-@custom-media --screen-sm-media (min-width: 768px) and (max-width: 991px);
+@custom-media --screen-sm-min-media (min-width: 769px);
+@custom-media --screen-sm-media (min-width: 769px) and (max-width: 991px);
 @custom-media --screen-sm-max-media (max-width: 991px);
 
 @custom-media --screen-md-min-media (min-width: 992px);
