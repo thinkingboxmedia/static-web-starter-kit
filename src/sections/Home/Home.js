@@ -5,12 +5,12 @@ import * as animate from 'gsap-promise';
 import classnames from 'classnames';
 
 // Components.
-import BaseComponent from 'src/components/BaseComponent';
+import BaseSection from 'src/components/BaseSection';
 
 // Styles.
 import styles from './Home.css';
 
-export default class Home extends BaseComponent {
+export default class Home extends BaseSection {
 
 	constructor(props) {
 		super(props);

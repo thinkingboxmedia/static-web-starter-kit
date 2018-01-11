@@ -14,7 +14,3 @@ export const Routes = [
 		exact: false,
 	},
 ];
-
-// module.exports = {
-// 	Routes,
-// };

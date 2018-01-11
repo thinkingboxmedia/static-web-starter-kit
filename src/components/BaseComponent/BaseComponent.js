@@ -55,6 +55,10 @@ export default class BaseComponent extends Component {
 	}
 
 	componentWillLeave (done) {
+		this.__handleAnimateOut(done);
+	}
+
+	__handleAnimateOut(done) {
 
 		const next = () => {
 			this.__isAnimatingOut = false;

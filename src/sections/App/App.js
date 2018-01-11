@@ -2,11 +2,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import debounce from 'lodash.debounce';
-import { BrowserRouter, Route, Switch, matchPath } from 'react-router-dom';
-import TransitionGroup from 'react-transition-group/TransitionGroup';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import TransitionGroup from 'react-addons-css-transition-group';
 
 // Elements.
 import Preloader from './elements/Preloader';
+
+// Sections.
+import Home from 'src/sections/Home';
+import Test from 'src/sections/Test';
 
 // Styles.
 import styles from './App.css';
@@ -18,7 +22,7 @@ export default class App extends Component {
 
 	static get propTypes() {
 		return {
-			windowResize: PropTypes.func.isRequired, // browser action
+			windowResize: PropTypes.func.isRequired,
 			children: PropTypes.element,
 		};
 	}
@@ -37,7 +41,6 @@ export default class App extends Component {
 		this.state = {
 			isPreloaderLoaded: false,
 			isPreloaderHidden: false,
-			matchedRoutes: [],
 		};
 
 		window.addEventListener('resize',
@@ -47,40 +50,6 @@ export default class App extends Component {
 		props.windowResize(window.innerWidth, window.innerHeight);
 	
 	}
-
-	componentWillMount() {
-		this.props.location && this.matchRoutes(this.props.location);
-	}
-
-	componentWillReceiveProps(nextProps) {
-		nextProps.location && this.matchRoutes(nextProps.location);
-	}
-
-	matchRoutes = ({ pathname }) => {
-	
-		const matchedRoutes = [];
-
-		for (let i = 0; i < Routes.length; i++) {
-
-			const { component: RouteComponent, ...rest } = Routes[i];
-			const match = matchPath(pathname, { ...rest });
-
-			if (match) {
-
-				matchedRoutes.push(
-					<RouteComponent key={ RouteComponent } { ...match } />,
-				);
-
-				if (match.isExact || match.isStrict)
-					break;
-
-			}
-
-		}
-
-		this.setState({ matchedRoutes });
-
-	};
 
 	preloaderLoadedHandler() {
 		this.setState({
@@ -110,9 +79,28 @@ export default class App extends Component {
 				{
 					isPreloaderLoaded &&
 					<div className={ styles.wrapper }>
-						<TransitionGroup>
-							{ this.state.matchedRoutes }
-						</TransitionGroup>
+						<BrowserRouter>
+							<Route render={ ({ location }) => (
+								<TransitionGroup
+									transitionName="__app"
+									transitionEnterTimeout={ 1000 }
+									transitionLeaveTimeout={ 1000 }
+								>
+									<Switch location={ location } key={ location.key }>
+										{
+											Routes.map((route, key) => (
+												<Route
+													exact={ route.exact }
+													path={ route.path }
+													component={ route.component }
+													key={ key }
+												/>
+											))
+										}
+									</Switch>
+								</TransitionGroup>
+							)} />
+						</BrowserRouter>
 					</div>
 				}
 			</div>
