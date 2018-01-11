@@ -9,7 +9,9 @@
     "prestart": "npm run build",
     "build": "cross-env NODE_ENV=production webpack --progress",
     "prebuild": "del build && mkdirp build && ncp static build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "component": "node tools/component.js",
+    "section": "node tools/component.js --section"
   },
   "repository": {
     "type": "git",
@@ -97,6 +99,7 @@
     "history": "^4.6.1",
     "ismobilejs": "^0.4.0",
     "lodash.debounce": "^4.0.8",
+    "maxstache": "^1.0.7",
     "mkdirp": "^0.5.1",
     "ncp": "^2.0.0",
     "normalize.css": "^6.0.0",
