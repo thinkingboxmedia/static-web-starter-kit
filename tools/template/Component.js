@@ -4,12 +4,12 @@ import * as animate from 'gsap-promise';
 import classnames from 'classnames';
 
 // Components.
-import BaseSection from 'src/components/BaseSection';
+import BaseComponent from 'src/components/BaseComponent';
 
 // Styles.
 import styles from './{{name}}.css';
 
-export default class {{name}} extends BaseSection {
+export default class {{name}} extends BaseComponent {
 
 	constructor(props) {
 
@@ -33,14 +33,13 @@ export default class {{name}} extends BaseSection {
 	render() {
 
 		const classes = classnames({
-			'routeWrapper': true,
 			[styles.{{name}}]: true,
 		});
 
 		return (
-			<section className={ classes } ref={ el => this.$node = el }>
+			<div className={ classes } ref={ el => this.$node = el }>
 
-			</section>
+			</div>
 		);
 
 	}
